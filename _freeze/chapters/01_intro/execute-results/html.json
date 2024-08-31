@@ -1,0 +1,17 @@
+{
+  "hash": "5421ac409b7972864d3d670b4f16108e",
+  "result": {
+    "engine": "knitr",
+    "markdown": "# Introduction\n\n#### Generate a random sample $x_1, \\ldots, x_{100}$ of data from the $t_4$ (df=4) distribution using the `rt` function.  Use the `MASS::truehist` function to display a probability histogram of the sample.\n\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nset.seed(1234)\nx <- rt(n=100, df=4)\nMASS::truehist(x, las=1, col=\"#118ab2\", border=\"grey80\", nbins=20)\n```\n\n::: {.cell-output-display}\n![](01_intro_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\n\n\n\n#### Add the $t_4$ density curve (`dt`) to your histogram in Exercise 1.1 using the `curve` function with `add=TRUE`.\n\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nMASS::truehist(x, las=1, col=\"#118ab2\", border=\"grey80\", nbins=20)\ncurve(dt(x, df=4), from=-4, to=4, add=T, type=\"l\")\n```\n\n::: {.cell-output-display}\n![](01_intro_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "01_intro_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -5,7 +5,7 @@ project:
 book:
   title: "Solutions to _Statistical Computing with R (2ed)_ by Maria Rizzo"
   author: "Dan Yavorsky"
-  date: "2024"
+  site-url: https://dyavorsky.github.io/rizzo-stat-computing/
   repo-url: https://github.com/dyavorsky/rizzo-stat-computing
   repo-actions: edit
   chapters:
@@ -16,6 +16,7 @@ book:
 format:
   html:
     toc: true
+    number-depth: 1
     theme: 
       light: cosmo
       dark: darkly

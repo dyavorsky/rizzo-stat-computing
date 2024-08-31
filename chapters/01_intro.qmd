@@ -1,5 +1,18 @@
 # Introduction
 
-This is a book created from markdown and executable code.
+#### Generate a random sample $x_1, \ldots, x_{100}$ of data from the $t_4$ (df=4) distribution using the `rt` function.  Use the `MASS::truehist` function to display a probability histogram of the sample.
+
+```{r}
+set.seed(1234)
+x <- rt(n=100, df=4)
+MASS::truehist(x, las=1, col="#118ab2", border="grey80", nbins=20)
+```
+
+#### Add the $t_4$ density curve (`dt`) to your histogram in Exercise 1.1 using the `curve` function with `add=TRUE`.
+
+```{r}
+MASS::truehist(x, las=1, col="#118ab2", border="grey80", nbins=20)
+curve(dt(x, df=4), from=-4, to=4, add=T, type="l")
+```
 
 

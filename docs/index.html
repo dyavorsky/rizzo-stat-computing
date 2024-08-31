@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dan Yavorsky">
-<meta name="dcterms.date" content="2023-12-31">
 
 <title>Solutions to Statistical Computing with R (2ed) by Maria Rizzo</title>
 <style>
@@ -164,12 +163,6 @@ ul.task-list li input[type="checkbox"] {
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">December 31, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -181,7 +174,26 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="welcome" class="level1 unnumbered">
 <h1 class="unnumbered">Welcome</h1>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I have just begun to work through Rizzo’s book. This set of solutions is decidedly incomplete. Every aspect of my work is subject to change. Many things might be incorrect. Are you sure you want to read this yet?</p>
+</div>
+</div>
+<div class="columns">
+<div class="column">
 <p>This is a website that provides solutions to the exercises from Maria Rizzo’s book <em>Statistical Computing in R (2ed)</em>.</p>
+</div><div class="column">
+<p><img src="cover.webp" class="img-fluid"></p>
+</div>
+</div>
 
 
 </section>
@@ -423,7 +435,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/dyavorsky\.github\.io\/rizzo-stat-computing\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

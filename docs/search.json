@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Solutions to Statistical Computing with R (2ed) by Maria Rizzo",
     "section": "",
-    "text": "Welcome\nThis is a website that provides solutions to the exercises from Maria Rizzo’s book Statistical Computing in R (2ed).",
+    "text": "Welcome\n\n\n\n\n\n\nWarning\n\n\n\nI have just begun to work through Rizzo’s book. This set of solutions is decidedly incomplete. Every aspect of my work is subject to change. Many things might be incorrect. Are you sure you want to read this yet?\n\n\n\n\nThis is a website that provides solutions to the exercises from Maria Rizzo’s book Statistical Computing in R (2ed).",
     "crumbs": [
       "Welcome"
     ]
@@ -14,7 +14,7 @@
     "href": "chapters/01_intro.html",
     "title": "1  Introduction",
     "section": "",
-    "text": "This is a book created from markdown and executable code.",
+    "text": "Generate a random sample \\(x_1, \\ldots, x_{100}\\) of data from the \\(t_4\\) (df=4) distribution using the rt function. Use the MASS::truehist function to display a probability histogram of the sample.\n\nset.seed(1234)\nx &lt;- rt(n=100, df=4)\nMASS::truehist(x, las=1, col=\"#118ab2\", border=\"grey80\", nbins=20)\n\n\n\n\n\n\n\n\n\n\nAdd the \\(t_4\\) density curve (dt) to your histogram in Exercise 1.1 using the curve function with add=TRUE.\n\nMASS::truehist(x, las=1, col=\"#118ab2\", border=\"grey80\", nbins=20)\ncurve(dt(x, df=4), from=-4, to=4, add=T, type=\"l\")",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]

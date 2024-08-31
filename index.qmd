@@ -1,4 +1,17 @@
 # Welcome {.unnumbered}
 
+::: {.callout-warning}
+I have just begun to work through Rizzo's book.  This set of solutions is decidedly incomplete. Every aspect of my work is subject to change. Many things might be incorrect. Are you sure you want to read this yet?
+:::
+
+:::: {.columns}
+::: {.column}
 This is a website that provides solutions to the exercises from Maria Rizzo's book _Statistical Computing in R (2ed)_.
+:::
+::: {.column}
+![](cover.webp)
+:::
+:::: 
+
+
 
