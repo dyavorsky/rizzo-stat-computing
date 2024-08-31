@@ -1,0 +1,4 @@
+# Welcome {.unnumbered}
+
+This is a website that provides solutions to the exercises from Maria Rizzo's book _Statistical Computing in R (2ed)_.
+

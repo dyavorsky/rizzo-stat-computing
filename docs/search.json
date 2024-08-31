@@ -1,0 +1,32 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Solutions to Statistical Computing with R (2ed) by Maria Rizzo",
+    "section": "",
+    "text": "Welcome\nThis is a website that provides solutions to the exercises from Maria Rizzo’s book Statistical Computing in R (2ed).",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "chapters/01_intro.html",
+    "href": "chapters/01_intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/02_probstat.html",
+    "href": "chapters/02_probstat.html",
+    "title": "2  Probability and Statistics",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Probability and Statistics</span>"
+    ]
+  }
+]

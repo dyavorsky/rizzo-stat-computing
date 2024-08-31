@@ -1,0 +1,28 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Solutions to _Statistical Computing with R (2ed)_ by Maria Rizzo"
+  author: "Dan Yavorsky"
+  date: "2024"
+  repo-url: https://github.com/dyavorsky/rizzo-stat-computing
+  repo-actions: edit
+  chapters:
+    - index.qmd
+    - chapters/01_intro.qmd
+    - chapters/02_probstat.qmd
+
+format:
+  html:
+    toc: true
+    theme: 
+      light: cosmo
+      dark: darkly
+
+execute:
+  freeze: auto
+  keep-md: false
+
+
+
