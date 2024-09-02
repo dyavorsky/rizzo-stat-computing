@@ -11,7 +11,7 @@ book:
   chapters:
     - index.qmd
     - chapters/01_intro.qmd
-    - chapters/02_probstat.qmd
+    - chapters/03_genrv.qmd
 
 format:
   html:

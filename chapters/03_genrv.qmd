@@ -1,0 +1,71 @@
+# Probability and Statistics
+
+### Q2.1
+
+Write a function that will generate and return a random sample of size $n$ from the two-parameter exponential distribution Exp($\lambda$,$eta$) for arbitrary $n$, $\lambda$, and $\eta$. (See Examples 2.3 and 2.6.) Generate a large sample from Exp($\lambda$,$eta$) and compare your sample quantiles with the theoretical quantiles.
+
+### Q2.2
+
+
+
+### Q2.3
+
+
+
+### Q2.4
+
+
+
+### Q2.5
+
+
+
+### Q2.6
+
+
+
+### Q2.7
+
+
+
+### Q2.8
+
+
+
+### Q2.9
+
+
+
+### Q2.10
+
+
+
+### Q2.11
+
+
+
+### Q2.12
+
+
+
+### Q2.13
+
+
+
+### Q2.14
+
+
+
+### Q2.15
+
+
+
+### Q2.16
+
+
+
+### Q2.17
+
+
+
+### Q2.18
