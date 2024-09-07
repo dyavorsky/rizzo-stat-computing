@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Introduction – Solutions to _Statistical Computing with R (2ed)_ by Maria Rizzo</title>
+<title>2&nbsp; Probability and Statistics Review – Solutions to _Statistical Computing with R (2ed)_ by Maria Rizzo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/02_probstat.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../chapters/03_genrv.html" rel="next">
+<link href="../chapters/01_intro.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -105,35 +71,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -146,7 +83,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01_intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02_probstat.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics Review</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -183,13 +120,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/01_intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="../chapters/01_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/02_probstat.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/02_probstat.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics Review</span></span></a>
   </div>
 </li>
@@ -204,29 +141,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#q1.1" id="toc-q1.1" class="nav-link active" data-scroll-target="#q1.1">Q1.1</a></li>
-  <li><a href="#q1.2" id="toc-q1.2" class="nav-link" data-scroll-target="#q1.2">Q1.2</a></li>
-  <li><a href="#q1.3" id="toc-q1.3" class="nav-link" data-scroll-target="#q1.3">Q1.3</a></li>
-  <li><a href="#q1.4a" id="toc-q1.4a" class="nav-link" data-scroll-target="#q1.4a">Q1.4a</a></li>
-  <li><a href="#q1.4b" id="toc-q1.4b" class="nav-link" data-scroll-target="#q1.4b">Q1.4b</a></li>
-  <li><a href="#q1.5" id="toc-q1.5" class="nav-link" data-scroll-target="#q1.5">Q1.5</a></li>
-  <li><a href="#q1.6" id="toc-q1.6" class="nav-link" data-scroll-target="#q1.6">Q1.6</a></li>
-  <li><a href="#q1.7" id="toc-q1.7" class="nav-link" data-scroll-target="#q1.7">Q1.7</a></li>
-  <li><a href="#q1.8" id="toc-q1.8" class="nav-link" data-scroll-target="#q1.8">Q1.8</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/dyavorsky/rizzo-stat-computing/edit/main/chapters/01_intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics Review</span></h1>
 </div>
 
 
@@ -243,133 +166,9 @@ window.Quarto = {
 </header>
 
 
-<section id="q1.1" class="level3">
-<h3 class="anchored" data-anchor-id="q1.1">Q1.1</h3>
-<p>Generate a random sample <span class="math inline">\(x_1, \ldots, x_{100}\)</span> of data from the <span class="math inline">\(t_4\)</span> (df=4) distribution using the <code>rt</code> function. Use the <code>MASS::truehist</code> function to display a probability histogram of the sample.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rt</span>(<span class="at">n=</span><span class="dv">100</span>, <span class="at">df=</span><span class="dv">4</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>MASS<span class="sc">::</span><span class="fu">truehist</span>(x, <span class="at">las=</span><span class="dv">1</span>, <span class="at">col=</span><span class="st">"#118ab2"</span>, <span class="at">border=</span><span class="st">"grey80"</span>, <span class="at">nbins=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="01_intro_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="q1.2" class="level3">
-<h3 class="anchored" data-anchor-id="q1.2">Q1.2</h3>
-<p>Add the <span class="math inline">\(t_4\)</span> density curve (<code>dt</code>) to your histogram in Exercise 1.1 using the <code>curve</code> function with <code>add=TRUE</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>MASS<span class="sc">::</span><span class="fu">truehist</span>(x, <span class="at">las=</span><span class="dv">1</span>, <span class="at">col=</span><span class="st">"#118ab2"</span>, <span class="at">border=</span><span class="st">"grey80"</span>, <span class="at">nbins=</span><span class="dv">20</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dt</span>(x, <span class="at">df=</span><span class="dv">4</span>), <span class="at">from=</span><span class="sc">-</span><span class="dv">4</span>, <span class="at">to=</span><span class="dv">4</span>, <span class="at">add=</span>T, <span class="at">type=</span><span class="st">"l"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="01_intro_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="q1.3" class="level3">
-<h3 class="anchored" data-anchor-id="q1.3">Q1.3</h3>
-<p>Add an estimated density curve to your histogram in Exercise 1.2 using <code>density</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>MASS<span class="sc">::</span><span class="fu">truehist</span>(x, <span class="at">las=</span><span class="dv">1</span>, <span class="at">col=</span><span class="st">"#118ab2"</span>, <span class="at">border=</span><span class="st">"grey80"</span>, <span class="at">nbins=</span><span class="dv">20</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dt</span>(x, <span class="at">df=</span><span class="dv">4</span>), <span class="at">from=</span><span class="sc">-</span><span class="dv">4</span>, <span class="at">to=</span><span class="dv">4</span>, <span class="at">add=</span>T, <span class="at">type=</span><span class="st">"l"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(x), <span class="at">col=</span><span class="st">"firebrick"</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="01_intro_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="q1.4a" class="level3">
-<h3 class="anchored" data-anchor-id="q1.4a">Q1.4a</h3>
-<p>Write an R function <code>f</code> in R to implement the function <span class="math inline">\(f(x) = (x-a)/b\)</span> that will transform an imput vector <span class="math inline">\(x\)</span> and return the result. The function should take three input arguments: <code>x</code>, <code>a</code>, and <code>b</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x, a, b) (x<span class="sc">-</span>a)<span class="sc">/</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="q1.4b" class="level3">
-<h3 class="anchored" data-anchor-id="q1.4b">Q1.4b</h3>
-<p>To transform <span class="math inline">\(x\)</span> to the interval <span class="math inline">\([0,1]\)</span> we subtract the minimum value and divice by the range: <code>y &lt;- f(x, a=min(x), b=max(x)-min(x))</code>. Generate a random sample of a Normal(<span class="math inline">\(\mu=2\)</span>, <span class="math inline">\(\sigma=2\)</span>) data using <code>rnorm</code> and use your function <code>f</code> to transform this sample to the interval <span class="math inline">\([0,1]\)</span>. Print a <code>summary</code> of both the sample <code>x</code> and the transformed sample <code>y</code> to check the result.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean=</span><span class="dv">2</span>, <span class="at">sd=</span><span class="dv">2</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">f</span>(x, <span class="fu">min</span>(x), <span class="fu">max</span>(x)<span class="sc">-</span><span class="fu">min</span>(x))</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">data.frame</span>(<span class="at">x=</span>x, <span class="at">y=</span>y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       x                 y         
- Min.   :-2.6914   Min.   :0.0000  
- 1st Qu.: 0.2093   1st Qu.:0.2963  
- Median : 1.2307   Median :0.4007  
- Mean   : 1.6865   Mean   :0.4472  
- 3rd Qu.: 2.9424   3rd Qu.:0.5755  
- Max.   : 7.0980   Max.   :1.0000  </code></pre>
-</div>
-</div>
-</section>
-<section id="q1.5" class="level3">
-<h3 class="anchored" data-anchor-id="q1.5">Q1.5</h3>
-<p>Refer to Exercise 1.4. Suppose that we want to transform the <code>x</code> sample so that it has mean zero and standard deviation one (<em>studentize</em> the sample). That is, we want <span class="math inline">\(z_i - (x_i-\bar{x})/s\)</span> for <span class="math inline">\(i=1,\ldots,n\)</span>, where <span class="math inline">\(s\)</span> is that standard deviation of the sample. Using your function <code>f</code> this is <code>z &lt;- f(x, a=mean(x), b=sd(x))</code>. Display a summary and histogram of the studentized sample <code>z</code>. It should be centered exactly at zero. Use <code>sd(z)</code> to check that the studentized sample has standard deviation exactly 1.0.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">f</span>(x, <span class="at">a=</span><span class="fu">mean</span>(x), <span class="at">b=</span><span class="fu">sd</span>(x))</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">mean</span>(z),<span class="dv">10</span>); <span class="fu">round</span>(<span class="fu">sd</span>(z),<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
-</div>
-</div>
-</section>
-<section id="q1.6" class="level3">
-<h3 class="anchored" data-anchor-id="q1.6">Q1.6</h3>
-<p>Using your function <code>f</code> of Exercise 1.4, center and scale your Normal(<span class="math inline">\(\mu=2\)</span>, <span class="math inline">\(\sigma=2\)</span>) sample by subtracting the sample median and dividing by the sample interquartile range (<code>IQR</code>).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">f</span>(x, <span class="at">a=</span><span class="fu">median</span>(x), <span class="at">b=</span><span class="fu">IQR</span>(x))</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(z, y, <span class="at">pch=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="01_intro_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="q1.7" class="level3">
-<h3 class="anchored" data-anchor-id="q1.7">Q1.7</h3>
-<p>Refer to Example 1.14 where we displayed an arrach of scatterplots using <code>ggplot</code> with <code>facet_wrap</code>. One of the variables in the <code>mpg</code> data is <code>drv</code>, a characer vector indicating whether the vehicle is front-wheel drive, real-wheel drive, or four-wheel drive. Add <code>color=drv</code> in <code>aes</code>: <code>aes(displ, hwy, color=drv)</code> and display the revised plot. Your scatterplots should now have automatically generated a legend for <code>drv</code> color.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(displ, hwy, <span class="at">color=</span>drv)) <span class="sc">+</span> </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="01_intro_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="q1.8" class="level3">
-<h3 class="anchored" data-anchor-id="q1.8">Q1.8</h3>
-<p>This exercise is intented to serve as an introduction to report writing with R Markdown. Install the <em>knitr</em> package if it is not installed. Create an html report using R Markdown and knitr in RStudio. The report whould include the code and output of Examples 1.12 and 1.14 with appropriate headings and a brief explanation o feach example.</p>
-<p><em>Solution Omitted.</em></p>
+<p><em>No questions.</em></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -938,13 +737,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Welcome">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome</span>
+      <a href="../chapters/01_intro.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/02_probstat.html" class="pagination-link" aria-label="Probability and Statistics Review">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics Review</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/03_genrv.html" class="pagination-link" aria-label="Methods for Generating Random Variables">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Methods for Generating Random Variables</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -953,4 +752,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dyavorsky/rizzo-stat-computing/edit/main/chapters/01_intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/dyavorsky/rizzo-stat-computing/edit/main/chapters/02_probstat.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

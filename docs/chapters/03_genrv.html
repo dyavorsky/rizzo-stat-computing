@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Probability and Statistics – Solutions to _Statistical Computing with R (2ed)_ by Maria Rizzo</title>
+<title>3&nbsp; Methods for Generating Random Variables – Solutions to _Statistical Computing with R (2ed)_ by Maria Rizzo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/01_intro.html" rel="prev">
+<link href="../chapters/02_probstat.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -111,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/03_genrv.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/03_genrv.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Methods for Generating Random Variables</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -154,8 +154,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../chapters/02_probstat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics Review</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../chapters/03_genrv.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Methods for Generating Random Variables</span></span></a>
   </div>
 </li>
     </ul>
@@ -168,24 +174,24 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#q2.1" id="toc-q2.1" class="nav-link active" data-scroll-target="#q2.1">Q2.1</a></li>
-  <li><a href="#q2.2" id="toc-q2.2" class="nav-link" data-scroll-target="#q2.2">Q2.2</a></li>
-  <li><a href="#q2.3" id="toc-q2.3" class="nav-link" data-scroll-target="#q2.3">Q2.3</a></li>
-  <li><a href="#q2.4" id="toc-q2.4" class="nav-link" data-scroll-target="#q2.4">Q2.4</a></li>
-  <li><a href="#q2.5" id="toc-q2.5" class="nav-link" data-scroll-target="#q2.5">Q2.5</a></li>
-  <li><a href="#q2.6" id="toc-q2.6" class="nav-link" data-scroll-target="#q2.6">Q2.6</a></li>
-  <li><a href="#q2.7" id="toc-q2.7" class="nav-link" data-scroll-target="#q2.7">Q2.7</a></li>
-  <li><a href="#q2.8" id="toc-q2.8" class="nav-link" data-scroll-target="#q2.8">Q2.8</a></li>
-  <li><a href="#q2.9" id="toc-q2.9" class="nav-link" data-scroll-target="#q2.9">Q2.9</a></li>
-  <li><a href="#q2.10" id="toc-q2.10" class="nav-link" data-scroll-target="#q2.10">Q2.10</a></li>
-  <li><a href="#q2.11" id="toc-q2.11" class="nav-link" data-scroll-target="#q2.11">Q2.11</a></li>
-  <li><a href="#q2.12" id="toc-q2.12" class="nav-link" data-scroll-target="#q2.12">Q2.12</a></li>
-  <li><a href="#q2.13" id="toc-q2.13" class="nav-link" data-scroll-target="#q2.13">Q2.13</a></li>
-  <li><a href="#q2.14" id="toc-q2.14" class="nav-link" data-scroll-target="#q2.14">Q2.14</a></li>
-  <li><a href="#q2.15" id="toc-q2.15" class="nav-link" data-scroll-target="#q2.15">Q2.15</a></li>
-  <li><a href="#q2.16" id="toc-q2.16" class="nav-link" data-scroll-target="#q2.16">Q2.16</a></li>
-  <li><a href="#q2.17" id="toc-q2.17" class="nav-link" data-scroll-target="#q2.17">Q2.17</a></li>
-  <li><a href="#q2.18" id="toc-q2.18" class="nav-link" data-scroll-target="#q2.18">Q2.18</a></li>
+  <li><a href="#q3.1" id="toc-q3.1" class="nav-link active" data-scroll-target="#q3.1">Q3.1</a></li>
+  <li><a href="#q3.2" id="toc-q3.2" class="nav-link" data-scroll-target="#q3.2">Q3.2</a></li>
+  <li><a href="#q3.3" id="toc-q3.3" class="nav-link" data-scroll-target="#q3.3">Q3.3</a></li>
+  <li><a href="#q3.4" id="toc-q3.4" class="nav-link" data-scroll-target="#q3.4">Q3.4</a></li>
+  <li><a href="#q3.5" id="toc-q3.5" class="nav-link" data-scroll-target="#q3.5">Q3.5</a></li>
+  <li><a href="#q3.6" id="toc-q3.6" class="nav-link" data-scroll-target="#q3.6">Q3.6</a></li>
+  <li><a href="#q3.7" id="toc-q3.7" class="nav-link" data-scroll-target="#q3.7">Q3.7</a></li>
+  <li><a href="#q3.8" id="toc-q3.8" class="nav-link" data-scroll-target="#q3.8">Q3.8</a></li>
+  <li><a href="#q3.9" id="toc-q3.9" class="nav-link" data-scroll-target="#q3.9">Q3.9</a></li>
+  <li><a href="#q3.10" id="toc-q3.10" class="nav-link" data-scroll-target="#q3.10">Q3.10</a></li>
+  <li><a href="#q3.11" id="toc-q3.11" class="nav-link" data-scroll-target="#q3.11">Q3.11</a></li>
+  <li><a href="#q3.12" id="toc-q3.12" class="nav-link" data-scroll-target="#q3.12">Q3.12</a></li>
+  <li><a href="#q3.13" id="toc-q3.13" class="nav-link" data-scroll-target="#q3.13">Q3.13</a></li>
+  <li><a href="#q3.14" id="toc-q3.14" class="nav-link" data-scroll-target="#q3.14">Q3.14</a></li>
+  <li><a href="#q3.15" id="toc-q3.15" class="nav-link" data-scroll-target="#q3.15">Q3.15</a></li>
+  <li><a href="#q3.16" id="toc-q3.16" class="nav-link" data-scroll-target="#q3.16">Q3.16</a></li>
+  <li><a href="#q3.17" id="toc-q3.17" class="nav-link" data-scroll-target="#q3.17">Q3.17</a></li>
+  <li><a href="#q3.18" id="toc-q3.18" class="nav-link" data-scroll-target="#q3.18">Q3.18</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/dyavorsky/rizzo-stat-computing/edit/main/chapters/03_genrv.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -194,7 +200,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Methods for Generating Random Variables</span></h1>
 </div>
 
 
@@ -211,60 +217,96 @@ window.Quarto = {
 </header>
 
 
-<section id="q2.1" class="level3">
-<h3 class="anchored" data-anchor-id="q2.1">Q2.1</h3>
-<p>Write a function that will generate and return a random sample of size <span class="math inline">\(n\)</span> from the two-parameter exponential distribution Exp(<span class="math inline">\(\lambda\)</span>,<span class="math inline">\(eta\)</span>) for arbitrary <span class="math inline">\(n\)</span>, <span class="math inline">\(\lambda\)</span>, and <span class="math inline">\(\eta\)</span>. (See Examples 2.3 and 2.6.) Generate a large sample from Exp(<span class="math inline">\(\lambda\)</span>,<span class="math inline">\(eta\)</span>) and compare your sample quantiles with the theoretical quantiles.</p>
+<section id="q3.1" class="level3">
+<h3 class="anchored" data-anchor-id="q3.1">Q3.1</h3>
+<p>Write a function that will generate and return a random sample of size <span class="math inline">\(n\)</span> from the two-parameter exponential distribution Exp(<span class="math inline">\(\lambda\)</span>,<span class="math inline">\(\eta\)</span>) for arbitrary <span class="math inline">\(n\)</span>, <span class="math inline">\(\lambda\)</span>, and <span class="math inline">\(\eta\)</span>. (See Examples 2.3 and 2.6.) Generate a large sample from Exp(<span class="math inline">\(\lambda\)</span>,<span class="math inline">\(\eta\)</span>) and compare your sample quantiles with the theoretical quantiles.</p>
 </section>
-<section id="q2.2" class="level3">
-<h3 class="anchored" data-anchor-id="q2.2">Q2.2</h3>
+<section id="q3.2" class="level3">
+<h3 class="anchored" data-anchor-id="q3.2">Q3.2</h3>
+<p>The standard Lapace distribution has density <span class="math inline">\(f(x) = \frac{1}{2}e^{-\vert x \vert}\)</span> for <span class="math inline">\(x \in \mathbb{R}\)</span>. Use the inverse transform method to generate a random sample of size 1000 from this distribution. Use one of the methods shown in this chapter to compare the generated sample to the target distribution.</p>
 </section>
-<section id="q2.3" class="level3">
-<h3 class="anchored" data-anchor-id="q2.3">Q2.3</h3>
+<section id="q3.3" class="level3">
+<h3 class="anchored" data-anchor-id="q3.3">Q3.3</h3>
+<p>The Pareto(<span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>) distribution has cdf</p>
+<p><span class="math display">\[ F(x) = 1 -  \left(\frac{b}{x}\right)^a, \hspace{1em} x \ge b &gt; 0, \; a &gt; 0 \]</span></p>
+<p>Derive the probability inverse transformation <span class="math inline">\(F^{-1}(U)\)</span> and use the inverse transform method to simulate a random sample from the Pareto(2,2) distribution. Graph the density histogram of the sample with the Pareto(2,2) density superimposed for comparison.</p>
 </section>
-<section id="q2.4" class="level3">
-<h3 class="anchored" data-anchor-id="q2.4">Q2.4</h3>
+<section id="q3.4" class="level3">
+<h3 class="anchored" data-anchor-id="q3.4">Q3.4</h3>
+<p>The Rayleigh density is</p>
+<p><span class="math display">\[ f(x) = \frac{x}{\sigma^2}e^{-x^2/(2\sigma^2)}, \hspace{1em} x \ge 0, \; \sigma &gt; 0 \]</span></p>
+<p>Develop an algorithm to generate random samples from a Rayleigh(<span class="math inline">\(\sigma\)</span>) distribution. Generate Rayleigh(<span class="math inline">\(\sigma\)</span>) samples for several choices of <span class="math inline">\(\sigma &gt; 0\)</span> and check that the mode of the generated samples is close to the theoretical mode <span class="math inline">\(\sigma\)</span> (check the histogram).</p>
 </section>
-<section id="q2.5" class="level3">
-<h3 class="anchored" data-anchor-id="q2.5">Q2.5</h3>
+<section id="q3.5" class="level3">
+<h3 class="anchored" data-anchor-id="q3.5">Q3.5</h3>
+<p>A discrete random variable <span class="math inline">\(X\)</span> has probability mass function</p>
+<p>[insert table]</p>
+<p>Use the inverse transform method to generate a random sample of size 1000 from the distribution of <span class="math inline">\(X\)</span>. Construct a relative frequency table and compare the empirical with the theoretical probabilities. Repeat using the R <code>sample</code> function.</p>
 </section>
-<section id="q2.6" class="level3">
-<h3 class="anchored" data-anchor-id="q2.6">Q2.6</h3>
+<section id="q3.6" class="level3">
+<h3 class="anchored" data-anchor-id="q3.6">Q3.6</h3>
+<p>Prove that the accepted variates generated by the acceptance-rejection sampling algorithm are a random sample from the target density <span class="math inline">\(f_X\)</span>.</p>
 </section>
-<section id="q2.7" class="level3">
-<h3 class="anchored" data-anchor-id="q2.7">Q2.7</h3>
+<section id="q3.7" class="level3">
+<h3 class="anchored" data-anchor-id="q3.7">Q3.7</h3>
+<p>Write a function to generate a random sample of size <span class="math inline">\(n\)</span> from the Beta(<span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>) distribution by the acceptance-rejection method. Generate a random sample of size 1000 from the Beta(3,2) distribution. Graph the histogram of the sample with the theoretical Beta(3,2) density superimposed.</p>
 </section>
-<section id="q2.8" class="level3">
-<h3 class="anchored" data-anchor-id="q2.8">Q2.8</h3>
+<section id="q3.8" class="level3">
+<h3 class="anchored" data-anchor-id="q3.8">Q3.8</h3>
+<p>Write a function to generate random variates from a Lognormal(<span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span>) distribution using a transformation method, and generate a random sample of size 1000. Compare the historgram with the lognormal density curve given by the <code>dlnorm</code> function in R.</p>
 </section>
-<section id="q2.9" class="level3">
-<h3 class="anchored" data-anchor-id="q2.9">Q2.9</h3>
+<section id="q3.9" class="level3">
+<h3 class="anchored" data-anchor-id="q3.9">Q3.9</h3>
+<p>The rescaled Epanechnikov kernal is a symmetric density function</p>
+<p><span class="math display">\[ f_e{x} = \frac{3}{4}(1-x^2), \hspace{1em} \vert x \vert \le 1 \]</span></p>
+<p>Devroye and Gyorfi give the following algorithm for simulation from this distribution. Generate iid <span class="math inline">\(U_1, U_2, U_3 \sim \text{Uniform}(-1,1)\)</span>. If <span class="math inline">\(\vert U_3 \vert \ge \vert U_2 \vert\)</span> and <span class="math inline">\(\vert U_3 \vert \ge \vert U_1 \vert\)</span>, deliver <span class="math inline">\(U_2\)</span>; otherwise deliver <span class="math inline">\(U_3\)</span>. Write a function to generate random variates from <span class="math inline">\(f_e\)</span>, and construct the histrogram density estimate of a large simulated random sample.</p>
 </section>
-<section id="q2.10" class="level3">
-<h3 class="anchored" data-anchor-id="q2.10">Q2.10</h3>
+<section id="q3.10" class="level3">
+<h3 class="anchored" data-anchor-id="q3.10">Q3.10</h3>
+<p>Prove that the algorithm given in Exercise 3.9 generates variates from the density <span class="math inline">\(f_e\)</span>.</p>
 </section>
-<section id="q2.11" class="level3">
-<h3 class="anchored" data-anchor-id="q2.11">Q2.11</h3>
+<section id="q3.11" class="level3">
+<h3 class="anchored" data-anchor-id="q3.11">Q3.11</h3>
+<p>Generate a random sample of size 1000 from a normal location mixture. The components of the mixture have <span class="math inline">\(N(0,1)\)</span> and <span class="math inline">\(N(3,1)\)</span> distributions with mixing probabilities <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2 = 1 - p_1\)</span>. Graph the histogram of the sample with density superimposed, for <span class="math inline">\(p_1 = 0.75\)</span>. Repeat with different values for <span class="math inline">\(p_1\)</span> and observe whether the empirical distribution of the mixture appears to be bimodal. Make a conjecture about the values of <span class="math inline">\(p_1\)</span> that produce bimodal mixtures.</p>
 </section>
-<section id="q2.12" class="level3">
-<h3 class="anchored" data-anchor-id="q2.12">Q2.12</h3>
+<section id="q3.12" class="level3">
+<h3 class="anchored" data-anchor-id="q3.12">Q3.12</h3>
+<p>Simulate a continuous Exponential-Gamma mixture. Suppose that the rate parameter <span class="math inline">\(\Lambda\)</span> has Gamma(<span class="math inline">\(r\)</span>, <span class="math inline">\(\beta\)</span>) distribution and <span class="math inline">\(Y\)</span> has Exp(<span class="math inline">\(\Lambda\)</span>) distribution. That is, <span class="math inline">\((Y \vert \Lambda = \lambda) \sim f_Y(y \vert \lambda) = \lambda e^{-\lambda y}\)</span>. Generate 1000 random observations from this mixture with <span class="math inline">\(r=4\)</span> and <span class="math inline">\(\beta=2\)</span></p>
 </section>
-<section id="q2.13" class="level3">
-<h3 class="anchored" data-anchor-id="q2.13">Q2.13</h3>
+<section id="q3.13" class="level3">
+<h3 class="anchored" data-anchor-id="q3.13">Q3.13</h3>
+<p>It can be shown that the mixture in Exercise 3.12 has a Pareto distibution with cdf</p>
+<p><span class="math display">\[ F(y) = 1 - \left( \frac{\beta}{\beta + y} \right)^r, \hspace{1em} y \ge 0\]</span></p>
+<p>(This is an alternative parameterization of the Paredo dcf given in Exercise 3.3.) Generate 1000 random observations from the mixture with <span class="math inline">\(r=4\)</span> and <span class="math inline">\(\beta = 2\)</span>. Compare the empirical tand theoretical (Pareto) distributions by graphing the density histogram of the sample and superimposing the Pareto density curve.</p>
 </section>
-<section id="q2.14" class="level3">
-<h3 class="anchored" data-anchor-id="q2.14">Q2.14</h3>
+<section id="q3.14" class="level3">
+<h3 class="anchored" data-anchor-id="q3.14">Q3.14</h3>
+<p>Generate 200 random observations from the 3-dimensional multivariate normal distribution having mean vecter <span class="math inline">\(\mu = (0,1,2)\)</span> and covariance matrix</p>
+<p><span class="math display">\[
+\Sigma =
+\begin{bmatrix}
+   1.0 &amp; -0.5 &amp;  0.5 \\
+  -0.5 &amp;  1.0 &amp; -0.5 \\
+   0.5 &amp; -0.5 &amp;  1.0
+\end{bmatrix}
+\]</span></p>
+<p>using the Choleski factorization method. Use the R <code>pairs</code> plot to graph an arrach of scatter plots for each pair of variables. For each pair of variables (visually) check that the location and correlation approximately agree with the theoretical parameters of the correponding bivariate normal distribution.</p>
 </section>
-<section id="q2.15" class="level3">
-<h3 class="anchored" data-anchor-id="q2.15">Q2.15</h3>
+<section id="q3.15" class="level3">
+<h3 class="anchored" data-anchor-id="q3.15">Q3.15</h3>
+<p>Write a function that will standardize a multivariate normal sample for arbitrary <span class="math inline">\(n\)</span> and <span class="math inline">\(d\)</span>. That is, transform the sample so that the sample mean vectore is zero and sample covariance is the identity matrix. To check your results, generate multivariate normal samples and print the sample mean vector and covariance matrix before and after standardization.</p>
 </section>
-<section id="q2.16" class="level3">
-<h3 class="anchored" data-anchor-id="q2.16">Q2.16</h3>
+<section id="q3.16" class="level3">
+<h3 class="anchored" data-anchor-id="q3.16">Q3.16</h3>
+<p>Efron and Tibshirani discuss the <code>scor</code> (<code>bootstrap</code>) test score data on 88 students who took examizations in five subjects. Each row of the data frame is a set of scores <span class="math inline">\((x_{i1}, \ldots, x_{i5})\)</span> for the <span class="math inline">\(i^{th}\)</span> student. Standardize the scores by type of exam. That is, standardize the bivariate samples (<span class="math inline">\(X_1, X_2\)</span>) (closed book) and the trivariate samples (<span class="math inline">\(X_3, X_4, X_5\)</span>) (open book). Compute the covariance matrix of the transformed sample of test scores.</p>
 </section>
-<section id="q2.17" class="level3">
-<h3 class="anchored" data-anchor-id="q2.17">Q2.17</h3>
+<section id="q3.17" class="level3">
+<h3 class="anchored" data-anchor-id="q3.17">Q3.17</h3>
+<p>Compare the performance of the Beta generator of Exercise 3.7, Example 3.8, and the R generator <code>rbeta</code>. Fix the parameters <span class="math inline">\(a=2\)</span>, <span class="math inline">\(b=2\)</span> and time each generator of 1000 iterations with sample size 5000. (See Example 3.19.) Are the results different for different choices of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>?</p>
 </section>
-<section id="q2.18" class="level3">
-<h3 class="anchored" data-anchor-id="q2.18">Q2.18</h3>
+<section id="q3.18" class="level3">
+<h3 class="anchored" data-anchor-id="q3.18">Q3.18</h3>
+<p>Write a function to generate a random sample from a <span class="math inline">\(W_d(\Sigma,n)\)</span> (Wishart) distribution for <span class="math inline">\(n &gt; d+1 \ge 1\)</span>, based on Bartlett’s decomposition.</p>
 
 
 </section>
@@ -836,8 +878,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/01_intro.html" class="pagination-link" aria-label="Introduction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="../chapters/02_probstat.html" class="pagination-link" aria-label="Probability and Statistics Review">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics Review</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
