@@ -1,0 +1,23 @@
+# Generating Random Processes
+
+### Q4.1
+
+Suppose that A and B each start with a stake of \$10, and bet \$1 on consecutive coin flips. The game ends when either one of the players has all of the money. Let $S_n$ be the fortune of player A at time $n$. Then $\left\{ S_n, \; n \ge 0 \right\}$ is a symmetric random walk with absorving barriers at 0 and 20. Simulate a realization of this process and plot $S_n$ vs.\ the time index from time 0 until a barrier is reached.
+
+
+
+### Q4.2
+
+A compound Poisson process is a stochastic process $\left\{ X(t), \; t \ge 0 \right\}$ that can be represented as the random sum $X(t) = \sum_{i=1}^{N(t)} Y_i, \; t \ge 0$, where $\left\{ N(t), \; t \ge 0 \right\}$ is a Poisson process and $Y_1, Y_2, \ldots$ are iid and independent of $\left\{ N(t), \; t \ge 0 \right\}$. Write a program to simulate a compound Poisson($\lambda$)-Gamma process ($Y$ has a Gamma distribution). Estimate the mean and the variance of $X(10)$ for several choices of the parameters and compare with the theoretical values. Hinkt: Show that $E[X(t)] = \lambda t E[Y_1]$ and $\text{Var}\left(X(t)\right) = \lambda t E[Y_1^2]$.
+
+
+
+### Q4.3
+
+A nonhomogeneous Poisson process has mean value function 
+
+$$ m(t) = t^2 + 2t, \hspace{1em} t \ge 0 $$
+
+Determine the intensity function $\lambda(t)$ of the process, and write a program to simulate the process on the interval [4,5]. Compute the probability distribution of $N(5)-N(4)$, and compare it to the empirical estimate obtained by replicating the simulation.
+
+
