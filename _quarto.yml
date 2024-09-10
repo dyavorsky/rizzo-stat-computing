@@ -13,6 +13,8 @@ book:
     - chapters/01_intro.qmd
     - chapters/02_probstat.qmd
     - chapters/03_genrv.qmd
+    - chapters/04_genrp.qmd
+    - chapters/05_viz.qmd
 
 format:
   html:
