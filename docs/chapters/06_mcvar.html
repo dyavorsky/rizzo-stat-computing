@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Probability and Statistics Review – Solutions to _Statistical Computing with R (2ed)_ by Maria Rizzo</title>
+<title>6&nbsp; Monte Carlo Integration and Variance Reduction – Solutions to _Statistical Computing with R (2ed)_ by Maria Rizzo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/03_genrv.html" rel="next">
-<link href="../chapters/01_intro.html" rel="prev">
+<link href="../chapters/07_mcinf.html" rel="next">
+<link href="../chapters/05_viz.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02_probstat.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics Review</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/06_mcvar.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Monte Carlo Integration and Variance Reduction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/02_probstat.html" class="sidebar-item-text sidebar-link active">
+  <a href="../chapters/02_probstat.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics Review</span></span></a>
   </div>
 </li>
@@ -150,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/06_mcvar.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/06_mcvar.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Monte Carlo Integration and Variance Reduction</span></span></a>
   </div>
 </li>
@@ -213,15 +213,35 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#q6.1" id="toc-q6.1" class="nav-link active" data-scroll-target="#q6.1">Q6.1</a></li>
+  <li><a href="#q6.2" id="toc-q6.2" class="nav-link" data-scroll-target="#q6.2">Q6.2</a></li>
+  <li><a href="#q6.3" id="toc-q6.3" class="nav-link" data-scroll-target="#q6.3">Q6.3</a></li>
+  <li><a href="#q6.4" id="toc-q6.4" class="nav-link" data-scroll-target="#q6.4">Q6.4</a></li>
+  <li><a href="#q6.5" id="toc-q6.5" class="nav-link" data-scroll-target="#q6.5">Q6.5</a></li>
+  <li><a href="#q6.6" id="toc-q6.6" class="nav-link" data-scroll-target="#q6.6">Q6.6</a></li>
+  <li><a href="#q6.7" id="toc-q6.7" class="nav-link" data-scroll-target="#q6.7">Q6.7</a></li>
+  <li><a href="#q6.8" id="toc-q6.8" class="nav-link" data-scroll-target="#q6.8">Q6.8</a></li>
+  <li><a href="#q6.9" id="toc-q6.9" class="nav-link" data-scroll-target="#q6.9">Q6.9</a></li>
+  <li><a href="#q6.10" id="toc-q6.10" class="nav-link" data-scroll-target="#q6.10">Q6.10</a></li>
+  <li><a href="#q6.11" id="toc-q6.11" class="nav-link" data-scroll-target="#q6.11">Q6.11</a></li>
+  <li><a href="#q6.12" id="toc-q6.12" class="nav-link" data-scroll-target="#q6.12">Q6.12</a></li>
+  <li><a href="#q6.13" id="toc-q6.13" class="nav-link" data-scroll-target="#q6.13">Q6.13</a></li>
+  <li><a href="#q6.14" id="toc-q6.14" class="nav-link" data-scroll-target="#q6.14">Q6.14</a></li>
+  <li><a href="#q6.15" id="toc-q6.15" class="nav-link" data-scroll-target="#q6.15">Q6.15</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/dyavorsky/rizzo-stat-computing/edit/main/chapters/06_mcvar.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics Review</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Monte Carlo Integration and Variance Reduction</span></h1>
 </div>
 
 
@@ -238,9 +258,53 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>No questions.</em></p>
+<section id="q6.1" class="level3">
+<h3 class="anchored" data-anchor-id="q6.1">Q6.1</h3>
+</section>
+<section id="q6.2" class="level3">
+<h3 class="anchored" data-anchor-id="q6.2">Q6.2</h3>
+</section>
+<section id="q6.3" class="level3">
+<h3 class="anchored" data-anchor-id="q6.3">Q6.3</h3>
+</section>
+<section id="q6.4" class="level3">
+<h3 class="anchored" data-anchor-id="q6.4">Q6.4</h3>
+</section>
+<section id="q6.5" class="level3">
+<h3 class="anchored" data-anchor-id="q6.5">Q6.5</h3>
+</section>
+<section id="q6.6" class="level3">
+<h3 class="anchored" data-anchor-id="q6.6">Q6.6</h3>
+</section>
+<section id="q6.7" class="level3">
+<h3 class="anchored" data-anchor-id="q6.7">Q6.7</h3>
+</section>
+<section id="q6.8" class="level3">
+<h3 class="anchored" data-anchor-id="q6.8">Q6.8</h3>
+</section>
+<section id="q6.9" class="level3">
+<h3 class="anchored" data-anchor-id="q6.9">Q6.9</h3>
+</section>
+<section id="q6.10" class="level3">
+<h3 class="anchored" data-anchor-id="q6.10">Q6.10</h3>
+</section>
+<section id="q6.11" class="level3">
+<h3 class="anchored" data-anchor-id="q6.11">Q6.11</h3>
+</section>
+<section id="q6.12" class="level3">
+<h3 class="anchored" data-anchor-id="q6.12">Q6.12</h3>
+</section>
+<section id="q6.13" class="level3">
+<h3 class="anchored" data-anchor-id="q6.13">Q6.13</h3>
+</section>
+<section id="q6.14" class="level3">
+<h3 class="anchored" data-anchor-id="q6.14">Q6.14</h3>
+</section>
+<section id="q6.15" class="level3">
+<h3 class="anchored" data-anchor-id="q6.15">Q6.15</h3>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -809,13 +873,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/01_intro.html" class="pagination-link" aria-label="Introduction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="../chapters/05_viz.html" class="pagination-link" aria-label="Visualization of Multivariate Data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Visualization of Multivariate Data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/03_genrv.html" class="pagination-link" aria-label="Methods for Generating Random Variables">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Methods for Generating Random Variables</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/07_mcinf.html" class="pagination-link" aria-label="Monte Carlo Methods in Inference">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Monte Carlo Methods in Inference</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -824,4 +888,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/dyavorsky/rizzo-stat-computing/edit/main/chapters/02_probstat.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dyavorsky/rizzo-stat-computing/edit/main/chapters/06_mcvar.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

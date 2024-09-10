@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Probability and Statistics Review – Solutions to _Statistical Computing with R (2ed)_ by Maria Rizzo</title>
+<title>8&nbsp; Bootstrap and Jackknife – Solutions to _Statistical Computing with R (2ed)_ by Maria Rizzo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/03_genrv.html" rel="next">
-<link href="../chapters/01_intro.html" rel="prev">
+<link href="../chapters/09_resamp.html" rel="next">
+<link href="../chapters/07_mcinf.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02_probstat.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics Review</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/08_bootjack.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrap and Jackknife</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/02_probstat.html" class="sidebar-item-text sidebar-link active">
+  <a href="../chapters/02_probstat.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics Review</span></span></a>
   </div>
 </li>
@@ -162,7 +162,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/08_bootjack.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/08_bootjack.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrap and Jackknife</span></span></a>
   </div>
 </li>
@@ -213,15 +213,31 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#q8.1" id="toc-q8.1" class="nav-link active" data-scroll-target="#q8.1">Q8.1</a></li>
+  <li><a href="#q8.2" id="toc-q8.2" class="nav-link" data-scroll-target="#q8.2">Q8.2</a></li>
+  <li><a href="#q8.3" id="toc-q8.3" class="nav-link" data-scroll-target="#q8.3">Q8.3</a></li>
+  <li><a href="#q8.4" id="toc-q8.4" class="nav-link" data-scroll-target="#q8.4">Q8.4</a></li>
+  <li><a href="#q8.5" id="toc-q8.5" class="nav-link" data-scroll-target="#q8.5">Q8.5</a></li>
+  <li><a href="#q8.6" id="toc-q8.6" class="nav-link" data-scroll-target="#q8.6">Q8.6</a></li>
+  <li><a href="#q8.7" id="toc-q8.7" class="nav-link" data-scroll-target="#q8.7">Q8.7</a></li>
+  <li><a href="#q8.8" id="toc-q8.8" class="nav-link" data-scroll-target="#q8.8">Q8.8</a></li>
+  <li><a href="#q8.9" id="toc-q8.9" class="nav-link" data-scroll-target="#q8.9">Q8.9</a></li>
+  <li><a href="#q8.10" id="toc-q8.10" class="nav-link" data-scroll-target="#q8.10">Q8.10</a></li>
+  <li><a href="#q8.11" id="toc-q8.11" class="nav-link" data-scroll-target="#q8.11">Q8.11</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/dyavorsky/rizzo-stat-computing/edit/main/chapters/08_bootjack.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics Review</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Bootstrap and Jackknife</span></h1>
 </div>
 
 
@@ -238,9 +254,41 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>No questions.</em></p>
+<section id="q8.1" class="level3">
+<h3 class="anchored" data-anchor-id="q8.1">Q8.1</h3>
+</section>
+<section id="q8.2" class="level3">
+<h3 class="anchored" data-anchor-id="q8.2">Q8.2</h3>
+</section>
+<section id="q8.3" class="level3">
+<h3 class="anchored" data-anchor-id="q8.3">Q8.3</h3>
+</section>
+<section id="q8.4" class="level3">
+<h3 class="anchored" data-anchor-id="q8.4">Q8.4</h3>
+</section>
+<section id="q8.5" class="level3">
+<h3 class="anchored" data-anchor-id="q8.5">Q8.5</h3>
+</section>
+<section id="q8.6" class="level3">
+<h3 class="anchored" data-anchor-id="q8.6">Q8.6</h3>
+</section>
+<section id="q8.7" class="level3">
+<h3 class="anchored" data-anchor-id="q8.7">Q8.7</h3>
+</section>
+<section id="q8.8" class="level3">
+<h3 class="anchored" data-anchor-id="q8.8">Q8.8</h3>
+</section>
+<section id="q8.9" class="level3">
+<h3 class="anchored" data-anchor-id="q8.9">Q8.9</h3>
+</section>
+<section id="q8.10" class="level3">
+<h3 class="anchored" data-anchor-id="q8.10">Q8.10</h3>
+</section>
+<section id="q8.11" class="level3">
+<h3 class="anchored" data-anchor-id="q8.11">Q8.11</h3>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -809,13 +857,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/01_intro.html" class="pagination-link" aria-label="Introduction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="../chapters/07_mcinf.html" class="pagination-link" aria-label="Monte Carlo Methods in Inference">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Monte Carlo Methods in Inference</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/03_genrv.html" class="pagination-link" aria-label="Methods for Generating Random Variables">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Methods for Generating Random Variables</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/09_resamp.html" class="pagination-link" aria-label="Resamping Applications">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Resamping Applications</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -824,4 +872,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/dyavorsky/rizzo-stat-computing/edit/main/chapters/02_probstat.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dyavorsky/rizzo-stat-computing/edit/main/chapters/08_bootjack.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

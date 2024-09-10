@@ -38,5 +38,125 @@
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Methods for Generating Random Variables</span>"
     ]
+  },
+  {
+    "objectID": "chapters/04_genrp.html",
+    "href": "chapters/04_genrp.html",
+    "title": "4  Generating Random Processes",
+    "section": "",
+    "text": "Q4.1\nSuppose that A and B each start with a stake of $10, and bet $1 on consecutive coin flips. The game ends when either one of the players has all of the money. Let \\(S_n\\) be the fortune of player A at time \\(n\\). Then \\(\\left\\{ S_n, \\; n \\ge 0 \\right\\}\\) is a symmetric random walk with absorving barriers at 0 and 20. Simulate a realization of this process and plot \\(S_n\\) vs. the time index from time 0 until a barrier is reached.\n\n\nQ4.2\nA compound Poisson process is a stochastic process \\(\\left\\{ X(t), \\; t \\ge 0 \\right\\}\\) that can be represented as the random sum \\(X(t) = \\sum_{i=1}^{N(t)} Y_i, \\; t \\ge 0\\), where \\(\\left\\{ N(t), \\; t \\ge 0 \\right\\}\\) is a Poisson process and \\(Y_1, Y_2, \\ldots\\) are iid and independent of \\(\\left\\{ N(t), \\; t \\ge 0 \\right\\}\\). Write a program to simulate a compound Poisson(\\(\\lambda\\))-Gamma process (\\(Y\\) has a Gamma distribution). Estimate the mean and the variance of \\(X(10)\\) for several choices of the parameters and compare with the theoretical values. Hinkt: Show that \\(E[X(t)] = \\lambda t E[Y_1]\\) and \\(\\text{Var}\\left(X(t)\\right) = \\lambda t E[Y_1^2]\\).\n\n\nQ4.3\nA nonhomogeneous Poisson process has mean value function\n\\[ m(t) = t^2 + 2t, \\hspace{1em} t \\ge 0 \\]\nDetermine the intensity function \\(\\lambda(t)\\) of the process, and write a program to simulate the process on the interval [4,5]. Compute the probability distribution of \\(N(5)-N(4)\\), and compare it to the empirical estimate obtained by replicating the simulation.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Generating Random Processes</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/05_viz.html",
+    "href": "chapters/05_viz.html",
+    "title": "5  Visualization of Multivariate Data",
+    "section": "",
+    "text": "Q5.1\n\n\nQ5.2\n\n\nQ5.3\n\n\nQ5.4\n\n\nQ5.5\n\n\nQ5.6\n\n\nQ5.7\n\n\nQ5.8\n\n\nQ5.9\n\n\nQ5.10\n\n\nQ5.11\n\n\nQ5.12\n\n\nQ5.13\n\n\nQ5.14\n\n\nQ5.15\n\n\nQ5.16",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Visualization of Multivariate Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/06_mcvar.html",
+    "href": "chapters/06_mcvar.html",
+    "title": "6  Monte Carlo Integration and Variance Reduction",
+    "section": "",
+    "text": "Q6.1\n\n\nQ6.2\n\n\nQ6.3\n\n\nQ6.4\n\n\nQ6.5\n\n\nQ6.6\n\n\nQ6.7\n\n\nQ6.8\n\n\nQ6.9\n\n\nQ6.10\n\n\nQ6.11\n\n\nQ6.12\n\n\nQ6.13\n\n\nQ6.14\n\n\nQ6.15",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Monte Carlo Integration and Variance Reduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/07_mcinf.html",
+    "href": "chapters/07_mcinf.html",
+    "title": "7  Monte Carlo Methods in Inference",
+    "section": "",
+    "text": "Q7.1\n\n\nQ7.2\n\n\nQ7.3\n\n\nQ7.4\n\n\nQ7.5\n\n\nQ7.6\n\n\nQ7.7\n\n\nQ7.8\n\n\nQ7.9\n\n\nQ7.10",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Monte Carlo Methods in Inference</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/08_bootjack.html",
+    "href": "chapters/08_bootjack.html",
+    "title": "8  Bootstrap and Jackknife",
+    "section": "",
+    "text": "Q8.1\n\n\nQ8.2\n\n\nQ8.3\n\n\nQ8.4\n\n\nQ8.5\n\n\nQ8.6\n\n\nQ8.7\n\n\nQ8.8\n\n\nQ8.9\n\n\nQ8.10\n\n\nQ8.11",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Bootstrap and Jackknife</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/09_resamp.html",
+    "href": "chapters/09_resamp.html",
+    "title": "9  Resamping Applications",
+    "section": "",
+    "text": "Q9.1\n\n\nQ9.2\n\n\nQ9.3\n\n\nQ9.4\n\n\nQ9.5\n\n\nQ9.6\n\n\nQ9.7",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Resamping Applications</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/10_permute.html",
+    "href": "chapters/10_permute.html",
+    "title": "10  Permutation Tests",
+    "section": "",
+    "text": "Q10.1\n\n\nQ10.2\n\n\nQ10.3\n\n\nQ10.4\n\n\nQ10.5\n\n\nQ10.6\n\n\nQ10.7",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Permutation Tests</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/11_mcmc.html",
+    "href": "chapters/11_mcmc.html",
+    "title": "11  Markov Chain Monte Carlo Methods",
+    "section": "",
+    "text": "Q11.1\n\n\nQ11.2\n\n\nQ11.3\n\n\nQ11.4\n\n\nQ11.5\n\n\nQ11.6\n\n\nQ11.7\n\n\nQ11.8\n\n\nQ11.9\n\n\nQ11.10\n\n\nQ11.11\n\n\nQ11.12\n\n\nQ11.13\n\n\nQ11.14\n\n\nQ11.15",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Markov Chain Monte Carlo Methods</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/12_densityest.html",
+    "href": "chapters/12_densityest.html",
+    "title": "12  Probability Density Estimation",
+    "section": "",
+    "text": "Q12.1\n\n\nQ12.2\n\n\nQ12.3\n\n\nQ12.4\n\n\nQ12.5\n\n\nQ12.6\n\n\nQ12.7\n\n\nQ12.8\n\n\nQ12.9\n\n\nQ12.10\n\n\nQ12.11\n\n\nQ12.12\n\n\nQ12.13",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Probability Density Estimation</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/13_numerical.html",
+    "href": "chapters/13_numerical.html",
+    "title": "13  Introduction to Numerical Methods in R",
+    "section": "",
+    "text": "Q13.1\n\n\nQ13.2\n\n\nQ13.3\n\n\nQ13.4\n\n\nQ13.5\n\n\nQ13.6",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Introduction to Numerical Methods in R</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/14_optim.html",
+    "href": "chapters/14_optim.html",
+    "title": "14  Optimization",
+    "section": "",
+    "text": "Q14.1\n\n\nQ14.2",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Optimization</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/15_program.html",
+    "href": "chapters/15_program.html",
+    "title": "15  Programming Topics",
+    "section": "",
+    "text": "Q15.1\n\n\nQ15.2\n\n\nQ15.3\n\n\nQ15.4\n\n\nQ15.5\n\n\nQ15.6",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Programming Topics</span>"
+    ]
   }
 ]

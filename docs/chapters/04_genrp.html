@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Probability and Statistics Review – Solutions to _Statistical Computing with R (2ed)_ by Maria Rizzo</title>
+<title>4&nbsp; Generating Random Processes – Solutions to _Statistical Computing with R (2ed)_ by Maria Rizzo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/03_genrv.html" rel="next">
-<link href="../chapters/01_intro.html" rel="prev">
+<link href="../chapters/05_viz.html" rel="next">
+<link href="../chapters/03_genrv.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -71,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -83,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/02_probstat.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics Review</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/04_genrp.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Generating Random Processes</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -126,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/02_probstat.html" class="sidebar-item-text sidebar-link active">
+  <a href="../chapters/02_probstat.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics Review</span></span></a>
   </div>
 </li>
@@ -138,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/04_genrp.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/04_genrp.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Generating Random Processes</span></span></a>
   </div>
 </li>
@@ -213,15 +242,23 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#q4.1" id="toc-q4.1" class="nav-link active" data-scroll-target="#q4.1">Q4.1</a></li>
+  <li><a href="#q4.2" id="toc-q4.2" class="nav-link" data-scroll-target="#q4.2">Q4.2</a></li>
+  <li><a href="#q4.3" id="toc-q4.3" class="nav-link" data-scroll-target="#q4.3">Q4.3</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/dyavorsky/rizzo-stat-computing/edit/main/chapters/04_genrp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Statistics Review</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Generating Random Processes</span></h1>
 </div>
 
 
@@ -238,9 +275,22 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>No questions.</em></p>
+<section id="q4.1" class="level3">
+<h3 class="anchored" data-anchor-id="q4.1">Q4.1</h3>
+<p>Suppose that A and B each start with a stake of $10, and bet $1 on consecutive coin flips. The game ends when either one of the players has all of the money. Let <span class="math inline">\(S_n\)</span> be the fortune of player A at time <span class="math inline">\(n\)</span>. Then <span class="math inline">\(\left\{ S_n, \; n \ge 0 \right\}\)</span> is a symmetric random walk with absorving barriers at 0 and 20. Simulate a realization of this process and plot <span class="math inline">\(S_n\)</span> vs.&nbsp;the time index from time 0 until a barrier is reached.</p>
+</section>
+<section id="q4.2" class="level3">
+<h3 class="anchored" data-anchor-id="q4.2">Q4.2</h3>
+<p>A compound Poisson process is a stochastic process <span class="math inline">\(\left\{ X(t), \; t \ge 0 \right\}\)</span> that can be represented as the random sum <span class="math inline">\(X(t) = \sum_{i=1}^{N(t)} Y_i, \; t \ge 0\)</span>, where <span class="math inline">\(\left\{ N(t), \; t \ge 0 \right\}\)</span> is a Poisson process and <span class="math inline">\(Y_1, Y_2, \ldots\)</span> are iid and independent of <span class="math inline">\(\left\{ N(t), \; t \ge 0 \right\}\)</span>. Write a program to simulate a compound Poisson(<span class="math inline">\(\lambda\)</span>)-Gamma process (<span class="math inline">\(Y\)</span> has a Gamma distribution). Estimate the mean and the variance of <span class="math inline">\(X(10)\)</span> for several choices of the parameters and compare with the theoretical values. Hinkt: Show that <span class="math inline">\(E[X(t)] = \lambda t E[Y_1]\)</span> and <span class="math inline">\(\text{Var}\left(X(t)\right) = \lambda t E[Y_1^2]\)</span>.</p>
+</section>
+<section id="q4.3" class="level3">
+<h3 class="anchored" data-anchor-id="q4.3">Q4.3</h3>
+<p>A nonhomogeneous Poisson process has mean value function</p>
+<p><span class="math display">\[ m(t) = t^2 + 2t, \hspace{1em} t \ge 0 \]</span></p>
+<p>Determine the intensity function <span class="math inline">\(\lambda(t)\)</span> of the process, and write a program to simulate the process on the interval [4,5]. Compute the probability distribution of <span class="math inline">\(N(5)-N(4)\)</span>, and compare it to the empirical estimate obtained by replicating the simulation.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -809,13 +859,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/01_intro.html" class="pagination-link" aria-label="Introduction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="../chapters/03_genrv.html" class="pagination-link" aria-label="Methods for Generating Random Variables">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Methods for Generating Random Variables</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/03_genrv.html" class="pagination-link" aria-label="Methods for Generating Random Variables">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Methods for Generating Random Variables</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/05_viz.html" class="pagination-link" aria-label="Visualization of Multivariate Data">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Visualization of Multivariate Data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -824,4 +874,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/dyavorsky/rizzo-stat-computing/edit/main/chapters/02_probstat.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dyavorsky/rizzo-stat-computing/edit/main/chapters/04_genrp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

@@ -2,18 +2,66 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dyavorsky.github.io/rizzo-stat-computing/index.html</loc>
-    <lastmod>2024-08-31T21:09:58.772Z</lastmod>
+    <lastmod>2024-09-10T21:21:52.669Z</lastmod>
   </url>
   <url>
     <loc>https://dyavorsky.github.io/rizzo-stat-computing/chapters/01_intro.html</loc>
-    <lastmod>2024-09-02T20:08:26.839Z</lastmod>
+    <lastmod>2024-09-10T21:21:52.633Z</lastmod>
   </url>
   <url>
     <loc>https://dyavorsky.github.io/rizzo-stat-computing/chapters/02_probstat.html</loc>
-    <lastmod>2024-09-07T17:23:22.489Z</lastmod>
+    <lastmod>2024-09-10T21:21:52.633Z</lastmod>
   </url>
   <url>
     <loc>https://dyavorsky.github.io/rizzo-stat-computing/chapters/03_genrv.html</loc>
-    <lastmod>2024-09-07T17:23:21.062Z</lastmod>
+    <lastmod>2024-09-10T21:21:52.634Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dyavorsky.github.io/rizzo-stat-computing/chapters/04_genrp.html</loc>
+    <lastmod>2024-09-10T21:21:52.635Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dyavorsky.github.io/rizzo-stat-computing/chapters/05_viz.html</loc>
+    <lastmod>2024-09-10T21:23:57.112Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dyavorsky.github.io/rizzo-stat-computing/chapters/06_mcvar.html</loc>
+    <lastmod>2024-09-10T21:31:45.279Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dyavorsky.github.io/rizzo-stat-computing/chapters/07_mcinf.html</loc>
+    <lastmod>2024-09-10T21:31:57.448Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dyavorsky.github.io/rizzo-stat-computing/chapters/08_bootjack.html</loc>
+    <lastmod>2024-09-10T21:32:05.857Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dyavorsky.github.io/rizzo-stat-computing/chapters/09_resamp.html</loc>
+    <lastmod>2024-09-10T21:32:29.441Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dyavorsky.github.io/rizzo-stat-computing/chapters/10_permute.html</loc>
+    <lastmod>2024-09-10T21:32:37.807Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dyavorsky.github.io/rizzo-stat-computing/chapters/11_mcmc.html</loc>
+    <lastmod>2024-09-10T21:32:45.664Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dyavorsky.github.io/rizzo-stat-computing/chapters/12_densityest.html</loc>
+    <lastmod>2024-09-10T21:32:55.349Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dyavorsky.github.io/rizzo-stat-computing/chapters/13_numerical.html</loc>
+    <lastmod>2024-09-10T21:33:03.137Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dyavorsky.github.io/rizzo-stat-computing/chapters/14_optim.html</loc>
+    <lastmod>2024-09-10T21:33:09.993Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dyavorsky.github.io/rizzo-stat-computing/chapters/15_program.html</loc>
+    <lastmod>2024-09-10T21:33:18.137Z</lastmod>
   </url>
 </urlset>

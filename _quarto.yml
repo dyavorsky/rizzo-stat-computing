@@ -15,6 +15,16 @@ book:
     - chapters/03_genrv.qmd
     - chapters/04_genrp.qmd
     - chapters/05_viz.qmd
+    - chapters/06_mcvar.qmd
+    - chapters/07_mcinf.qmd
+    - chapters/08_bootjack.qmd
+    - chapters/09_resamp.qmd
+    - chapters/10_permute.qmd
+    - chapters/11_mcmc.qmd
+    - chapters/12_densityest.qmd
+    - chapters/13_numerical.qmd
+    - chapters/14_optim.qmd
+    - chapters/15_program.qmd
 
 format:
   html:
