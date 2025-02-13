@@ -94,7 +94,7 @@ It can be shown that the mixture in Exercise 3.12 has a Pareto distibution with 
 
 $$ F(y) = 1 - \left( \frac{\beta}{\beta + y} \right)^r, \hspace{1em} y \ge 0$$
 
-(This is an alternative parameterization of the Paredo dcf given in Exercise 3.3.) Generate 1000 random observations from the mixture with $r=4$ and $\beta = 2$. Compare the empirical tand theoretical (Pareto) distributions by graphing the density histogram of the sample and superimposing the Pareto density curve.
+(This is an alternative parameterization of the Paredo cdf given in Exercise 3.3.) Generate 1000 random observations from the mixture with $r=4$ and $\beta = 2$. Compare the empirical and theoretical (Pareto) distributions by graphing the density histogram of the sample and superimposing the Pareto density curve.
 
 
 
@@ -117,7 +117,7 @@ using the Choleski factorization method. Use the R `pairs` plot to graph an arra
 
 ### Q3.15
 
-Write a function that will standardize a multivariate normal sample for arbitrary $n$ and $d$. That is, transform the sample so that the sample mean vectore is zero and sample covariance is the identity matrix. To check your results, generate multivariate normal samples and print the sample mean vector and covariance matrix before and after standardization.
+Write a function that will standardize a multivariate normal sample for arbitrary $n$ and $d$. That is, transform the sample so that the sample mean vector is zero and sample covariance is the identity matrix. To check your results, generate multivariate normal samples and print the sample mean vector and covariance matrix before and after standardization.
 
 
 

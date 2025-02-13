@@ -71,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -261,51 +290,100 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="q5.1" class="level3">
 <h3 class="anchored" data-anchor-id="q5.1">Q5.1</h3>
+<p>Generate 200 random observations from the multivariate normal distribution having mean vector <span class="math inline">\(\mu = (0,1,2)\)</span> and covariance matrix</p>
+<p><span class="math display">\[
+\Sigma =
+\begin{bmatrix}
+1.0 &amp; -0.5 &amp; 0.5 \\
+-0.5 &amp; 1.0 &amp; -0.5 \\
+0.5 &amp; -0.5 &amp; 1.0
+\end{bmatrix}
+\]</span></p>
+<p>Construct a scatterplot matrix and verify that the location and correlation for each plot agrees with the parameters of the corresponding bivariate distributions.</p>
 </section>
 <section id="q5.2" class="level3">
 <h3 class="anchored" data-anchor-id="q5.2">Q5.2</h3>
+<p>Add a fitted smooth curve to each of the scatterplots in Figure 5.1 of Example 5.1 (see <code>?panel.smooth</code>).</p>
 </section>
 <section id="q5.3" class="level3">
 <h3 class="anchored" data-anchor-id="q5.3">Q5.3</h3>
+<p>The random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent and identically distributed with normal mixture distributions. The components of the mixture have <span class="math inline">\(N(0,1)\)</span> and <span class="math inline">\(N(3,1)\)</span> distributions with mixing probabilities <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2=1-p_1\)</span>, respectively. Generate a bivariate random sample from the joint distribution of <span class="math inline">\((X,Y)\)</span> and construct a contour plot. Adjust the levels of the contours so that the contours of the second mode are visible.</p>
 </section>
 <section id="q5.4" class="level3">
 <h3 class="anchored" data-anchor-id="q5.4">Q5.4</h3>
+<p>Construct a filled contour plot of the bivariate mixture in Exercise 5.3.</p>
 </section>
 <section id="q5.5" class="level3">
 <h3 class="anchored" data-anchor-id="q5.5">Q5.5</h3>
+<p>Construct a surface plot of the bivariate mixture in Exercise 5.3.</p>
 </section>
 <section id="q5.6" class="level3">
 <h3 class="anchored" data-anchor-id="q5.6">Q5.6</h3>
+<p>Repeat Exercise 5.3 for various different choices of the parameters of the mixture model, and compre the distributions through contour plots.</p>
 </section>
 <section id="q5.7" class="level3">
 <h3 class="anchored" data-anchor-id="q5.7">Q5.7</h3>
+<p>Create a parallel coordinates plot of the <code>crabs</code> (<code>MASS</code>) data using all 200 observations. Compare the plots before and after adjusting the measurements by the size of the crab. Interpret the resulting plots.</p>
 </section>
 <section id="q5.8" class="level3">
 <h3 class="anchored" data-anchor-id="q5.8">Q5.8</h3>
+<p>Create a plot of the Andrews curves for the <code>leafshape17</code> (<code>DAAG</code>) data, using the logarithms of measurements (<code>logwid</code>, <code>logpet</code>, <code>loglen</code>). Set line type to identify leaf architecture as in Example 5.10. Compare with the plot in Figure 5.10.</p>
 </section>
 <section id="q5.9" class="level3">
 <h3 class="anchored" data-anchor-id="q5.9">Q5.9</h3>
+<p>Refer to the <code>leafshape</code> (<code>DAAG</code>) data set. Produce Andrews curves for each of the six locations. Split the screen into six plotting areas, and display all six plots on one screen. Set line type or color to identiy leaf architecture. Do the plots suggest differences in leaf shape by location?</p>
 </section>
 <section id="q5.10" class="level3">
 <h3 class="anchored" data-anchor-id="q5.10">Q5.10</h3>
+<p>Generalize the function in Example 5.10 to return the Andrews curve function for vectors in <span class="math inline">\(\mathbb{R}^d\)</span>, where the dimension <span class="math inline">\(d \ge 2\)</span> is arbitrary. Test this function by producing Andrews curves for the <code>iris</code> data (<span class="math inline">\(d=4\)</span>) and <code>crabs</code> (<code>MASS</code>) data (<span class="math inline">\(d=5\)</span>).</p>
 </section>
 <section id="q5.11" class="level3">
 <h3 class="anchored" data-anchor-id="q5.11">Q5.11</h3>
+<p>Refer to the full <code>leafshape</code> (<code>DAAG</code>) data set. Display a segment style stars plot for leaf measurements at latitude 42 (Tasmania). Repeat using the logarithms of the measurements.</p>
 </section>
 <section id="q5.12" class="level3">
 <h3 class="anchored" data-anchor-id="q5.12">Q5.12</h3>
+<p>This exercise concerns understanding the transformation applied in principal components analysis as displayed in the biplot. Refer to the PCA example on the <code>scor</code> data (Examples 5.13 - 5.14). The PCA biplot plots the transformed sample in the coordinates of the first two PCs. The linear transformation is given by the rotation matrix (the eigenvectors of the sample covariance matrix) so the PCs are <span class="math inline">\(Z = XR\)</span> where <span class="math inline">\(X\)</span> is the (standardized) data matrix, and <span class="math inline">\(R\)</span> is the rotation matrix returned by <code>prcomp</code>. The coordinates are then scaled to unit variance for plotting; that is <span class="math inline">\(Z_j \rightarrow Z_j / \sqrt{\lambda_j}\)</span>. We can write the transformation for the biplot in matrix form as <span class="math inline">\(XR\Lambda^{-1/2}\)</span>, where <span class="math inline">\(\Lambda^{-1/2}\)</span> is the diagonal matrix with <span class="math inline">\(\{\sqrt{1/\lambda_1}, \ldots, \sqrt{1/\lambda_p}\}\)</span>. along the diagonal. The diagonal of <span class="math inline">\(\Lambda^{-1/2}\)</span> is returned by <code>prcomp</code> in component <code>sdev</code>. Apply the linear transformation to the standardized <code>scor</code> data and display a scatterplot of the first two PCs. Your plotted points should match the PCA biplot of Example 5.14 (Figure 5.14).</p>
 </section>
 <section id="q5.13" class="level3">
 <h3 class="anchored" data-anchor-id="q5.13">Q5.13</h3>
+<p>Refer to Exercise 5.12. Compute the coordinates of the arrows in Figure 5.14. Instead of the sample <span class="math inline">\(X\)</span>, here you will transform the standard basis vectors <span class="math display">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\]</span></p>
+<p>so your transformed basis is simply <span class="math inline">\(R\)</span>. The arrows are scaled so that they extend about 2.5 standard deviations, so to get the approximate length of the arrows in the biplot, the transformation would be <span class="math inline">\(2.5R\Lambda^{-1/2}\)</span>. Use the <code>arrows</code> function to add the arrows to your plot of Exercise 5.12. Compare your plot with the arrows to Figure 5.14.</p>
 </section>
 <section id="q5.14" class="level3">
 <h3 class="anchored" data-anchor-id="q5.14">Q5.14</h3>
+<p>The <code>Hitters</code> data set is provided in the package <code>ISLR</code>. This data contains salary information and tatistics for Major League Baseball players in the USA. All of the 19 variables (excluding <code>Salary</code>) are possible predictor variables for a model to predict player salary. In this exercise, you will apply principal components analysis on the predictors.</p>
+<ol type="a">
+<li><p>Review the structure of the data frame with <code>str</code> and note which variables are factors. Create a new data frame omitting <code>Salary</code>. Then convert the factor variables to integers <span class="math inline">\(\{0,1\}\)</span> (they are binary so this is not a problem).</p></li>
+<li><p>Display a screeplot (see Example 5.13) and a table summarizing the proportion of variance expained by each principal component. How many PCs are suggested by the plot and the table?</p></li>
+<li><p>Use the eigenvectors of the sample covariance matrix to compute the principal components and list the top five rows of the matrix.</p></li>
+<li><p>Use the principal components and the <code>plot</code> function to plot the data in the (PC1, PC2) plane.</p></li>
+<li><p>Interpret and discuss the results of PCA on this data.</p></li>
+</ol>
 </section>
 <section id="q5.15" class="level3">
 <h3 class="anchored" data-anchor-id="q5.15">Q5.15</h3>
+<p>Refer to Exercise 5.14 and the <code>Hitters (ISRL)</code> data set.</p>
+<ol type="a">
+<li><p>After removing the <code>Salary</code> variable, covert the three factor variables to binary <span class="math inline">\(\{0,1\}\)</span> data.</p></li>
+<li><p>Repeat your analysis of Exercise 5.14 using <code>prcomp</code>. Display a <code>summary</code> and get the first five rows of the PCs using the <code>predict</code> method. Check that your results match your computation in Exercise 5.14.</p></li>
+<li><p>Display a screeplot of the eigenvalues using the <code>screeplot</code> function.</p></li>
+<li><p>Print the variances of the principal components: <span class="math inline">\(\text{Var}(Z_1), \text{Var}(Z_2), \ldots\)</span></p></li>
+<li><p>Display a PC biplot, and discuss the plot.</p></li>
+<li><p>Interpret and discuss the results of PCA on this data.</p></li>
+</ol>
 </section>
 <section id="q5.16" class="level3">
 <h3 class="anchored" data-anchor-id="q5.16">Q5.16</h3>
+<p>Refer to Example 5.15. Use the <code>PCA</code> function in the <code>FactoMineR</code> package to repeat the principal components analysis on the decathlon data, and display biplots for (PC1, PC2), (PC1, PC3), (PC1, PC4), and (PC2, PC3) without the individuals’ labels. What relationships do you observe between the pairs or groups of track and field events from the plots?</p>
 
 
 </section>

@@ -37,7 +37,7 @@ Construct a filled contour plot of the bivariate mixture in Exercise 5.3.
 
 ### Q5.5
 
-Construct a survace plot of the bivariate mixture in Exercise 5.3.
+Construct a surface plot of the bivariate mixture in Exercise 5.3.
 
 
 
@@ -49,31 +49,31 @@ Repeat Exercise 5.3 for various different choices of the parameters of the mixtu
 
 ### Q5.7
 
-Create a parallel coordinates plot of the `crabs (MASS)` data using all 200 observations. Compare the plots before and after adjusting the measurements by the size of the crab. Interpret the resulting plots.
+Create a parallel coordinates plot of the `crabs` (`MASS`) data using all 200 observations. Compare the plots before and after adjusting the measurements by the size of the crab. Interpret the resulting plots.
 
 
 
 ### Q5.8
 
-Create a plot of the Andrews curves for the `leafshape17 (DAAG)` data, using the logarithms of measurements (`logwid`, `logpet`, `loglen`). Set line type to identify leaf architecture as in Example 5.10. Compare with the plot in Figure 5.10.
+Create a plot of the Andrews curves for the `leafshape17` (`DAAG`) data, using the logarithms of measurements (`logwid`, `logpet`, `loglen`). Set line type to identify leaf architecture as in Example 5.10. Compare with the plot in Figure 5.10.
 
 
 
 ### Q5.9
 
-Refer to the `leafshape (DAAG)` data set. Produce Andrews curves for each of the six locations. Split the screen into six plotting area, and display all six plots on one screen. Set line type or color to identiy leaf architecture. Do teh plots suggest differences in leaf shape by location? 
+Refer to the `leafshape` (`DAAG`) data set. Produce Andrews curves for each of the six locations. Split the screen into six plotting areas, and display all six plots on one screen. Set line type or color to identiy leaf architecture. Do the plots suggest differences in leaf shape by location? 
 
 
 
 ### Q5.10
 
-Generalize the function in Example 5.10 to return the Andrews curve function for vectors in $\mathbb{R}^d$, where the dimension $d \ge 2$ is arbitrary. Test this function by producing Andrews curves for the `iris` data ($d=4$) and `crabs (MASS)` data ($d=5$).
+Generalize the function in Example 5.10 to return the Andrews curve function for vectors in $\mathbb{R}^d$, where the dimension $d \ge 2$ is arbitrary. Test this function by producing Andrews curves for the `iris` data ($d=4$) and `crabs` (`MASS`) data ($d=5$).
 
 
 
 ### Q5.11
 
-Refer to the full `leafshape (DAAG)` data set. Display a segment style stars plot for leaf measurements at latitude 42 (Tasmania). Repeat using the logarithms of the measurements. 
+Refer to the full `leafshape` (`DAAG`) data set. Display a segment style stars plot for leaf measurements at latitude 42 (Tasmania). Repeat using the logarithms of the measurements. 
 
 
 
@@ -122,7 +122,7 @@ Refer to Exercise 5.14 and the `Hitters (ISRL)` data set.
 
 a. After removing the `Salary` variable, covert the three factor variables to binary $\{0,1\}$ data.
 
-b. Reeat your analysis of Exercise 5.14 using `prcomp`. Display a `summary` and get the first five rows of the PCs using the `predict` method. Check that your results match your computation in Exercise 5.14. 
+b. Repeat your analysis of Exercise 5.14 using `prcomp`. Display a `summary` and get the first five rows of the PCs using the `predict` method. Check that your results match your computation in Exercise 5.14. 
 
 c. Display a screeplot of the eigenvalues using the `screeplot` function.
 

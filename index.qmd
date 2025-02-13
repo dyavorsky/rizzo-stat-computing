@@ -6,7 +6,7 @@ I have just begun to work through Rizzo's book.  This set of solutions is decide
 
 :::: {.columns}
 ::: {.column}
-This is a website that provides solutions to the exercises from Maria Rizzo's book _Statistical Computing in R (2ed)_.
+This is a website that provides my solutions to the exercises from Maria Rizzo's book _Statistical Computing in R (2ed)_.
 :::
 ::: {.column}
 ![](cover.webp)
