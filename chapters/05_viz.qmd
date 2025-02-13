@@ -2,33 +2,141 @@
 
 ### Q5.1
 
+Generate 200 random observations from the multivariate normal distribution having mean vector $\mu = (0,1,2)$ and covariance matrix 
+
+$$
+\Sigma = 
+\begin{bmatrix}
+1.0 & -0.5 & 0.5 \\
+-0.5 & 1.0 & -0.5 \\
+0.5 & -0.5 & 1.0
+\end{bmatrix}
+$$
+
+Construct a scatterplot matrix and verify that the location and correlation for each plot agrees with the parameters of the corresponding bivariate distributions.
+
+
+
 ### Q5.2
+
+Add a fitted smooth curve to each of the scatterplots in Figure 5.1 of Example 5.1 (see `?panel.smooth`).
+
+
 
 ### Q5.3
 
+The random variables $X$ and $Y$ are independent and identically distributed with normal mixture distributions. The components of the mixture have $N(0,1)$ and $N(3,1)$ distributions with mixing probabilities $p_1$ and $p_2=1-p_1$, respectively. Generate a bivariate random sample from the joint distribution of $(X,Y)$ and construct a contour plot. Adjust the levels of the contours so that the contours of the second mode are visible.
+
+
+
 ### Q5.4
+
+Construct a filled contour plot of the bivariate mixture in Exercise 5.3.
+
+
 
 ### Q5.5
 
+Construct a survace plot of the bivariate mixture in Exercise 5.3.
+
+
+
 ### Q5.6
+
+Repeat Exercise 5.3 for various different choices of the parameters of the mixture model, and compre the distributions through contour plots.
+
+
 
 ### Q5.7
 
+Create a parallel coordinates plot of the `crabs (MASS)` data using all 200 observations. Compare the plots before and after adjusting the measurements by the size of the crab. Interpret the resulting plots.
+
+
+
 ### Q5.8
+
+Create a plot of the Andrews curves for the `leafshape17 (DAAG)` data, using the logarithms of measurements (`logwid`, `logpet`, `loglen`). Set line type to identify leaf architecture as in Example 5.10. Compare with the plot in Figure 5.10.
+
+
 
 ### Q5.9
 
+Refer to the `leafshape (DAAG)` data set. Produce Andrews curves for each of the six locations. Split the screen into six plotting area, and display all six plots on one screen. Set line type or color to identiy leaf architecture. Do teh plots suggest differences in leaf shape by location? 
+
+
+
 ### Q5.10
+
+Generalize the function in Example 5.10 to return the Andrews curve function for vectors in $\mathbb{R}^d$, where the dimension $d \ge 2$ is arbitrary. Test this function by producing Andrews curves for the `iris` data ($d=4$) and `crabs (MASS)` data ($d=5$).
+
+
 
 ### Q5.11
 
+Refer to the full `leafshape (DAAG)` data set. Display a segment style stars plot for leaf measurements at latitude 42 (Tasmania). Repeat using the logarithms of the measurements. 
+
+
+
 ### Q5.12
+
+This exercise concerns understanding the transformation applied in principal components analysis as displayed in the biplot. Refer to the PCA example on the `scor` data (Examples 5.13 - 5.14). The PCA biplot plots the transformed sample in the coordinates of the first two PCs. The linear transformation is given by the rotation matrix (the eigenvectors of the sample covariance matrix) so the PCs are $Z = XR$ where $X$ is the (standardized) data matrix, and $R$ is the rotation matrix returned by `prcomp`. The coordinates are then scaled to unit variance for plotting; that is $Z_j \rightarrow Z_j / \sqrt{\lambda_j}$. We can write the transformation for the biplot in matrix form as $XR\Lambda^{-1/2}$, where $\Lambda^{-1/2}$ is the diagonal matrix with $\{\sqrt{1/\lambda_1}, \ldots, \sqrt{1/\lambda_p}\}$. along the diagonal. The diagonal of $\Lambda^{-1/2}$ is returned by `prcomp` in component `sdev`. Apply the linear transformation to the standardized `scor` data and display a scatterplot of the first two PCs. Your plotted points should match the PCA biplot of Example 5.14 (Figure 5.14).
+
+
 
 ### Q5.13
 
+Refer to Exercise 5.12. Compute the coordinates of the arrows in Figure 5.14. Instead of the sample $X$, here you will transform the standard basis vectors 
+$$
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 1 
+\end{bmatrix}
+$$
+
+so your transformed basis is simply $R$. The arrows are scaled so that they extend about 2.5 standard deviations, so to get the approximate length of the arrows in the biplot, the transformation would be $2.5R\Lambda^{-1/2}$. Use the `arrows` function to add the arrows to your plot of Exercise 5.12. Compare your plot with the arrows to Figure 5.14.
+
+
+
 ### Q5.14
+
+The `Hitters` data set is provided in the package `ISLR`. This data contains salary information and tatistics for Major League Baseball players in the USA. All of the 19 variables (excluding `Salary`) are possible predictor variables for a model to predict player salary. In this exercise, you will apply principal components analysis on the predictors. 
+
+a. Review the structure of the data frame with `str` and note which variables are factors. Create a new data frame omitting `Salary`. Then convert the factor variables to integers $\{0,1\}$ (they are binary so this is not a problem).
+
+b. Display a screeplot (see Example 5.13) and a table summarizing the proportion of variance expained by each principal component. How many PCs are suggested by the plot and the table?
+
+c. Use the eigenvectors of the sample covariance matrix to compute the principal components and list the top five rows of the matrix.
+
+d. Use the principal components and the `plot` function to plot the data in the (PC1, PC2) plane.
+
+e. Interpret and discuss the results of PCA on this data.
+
+
 
 ### Q5.15
 
+Refer to Exercise 5.14 and the `Hitters (ISRL)` data set.
+
+a. After removing the `Salary` variable, covert the three factor variables to binary $\{0,1\}$ data.
+
+b. Reeat your analysis of Exercise 5.14 using `prcomp`. Display a `summary` and get the first five rows of the PCs using the `predict` method. Check that your results match your computation in Exercise 5.14. 
+
+c. Display a screeplot of the eigenvalues using the `screeplot` function.
+
+d. Print the variances of the principal components: $\text{Var}(Z_1), \text{Var}(Z_2), \ldots$
+
+e. Display a PC biplot, and discuss the plot.
+
+f. Interpret and discuss the results of PCA on this data.
+
+
+
 ### Q5.16
+
+Refer to Example 5.15. Use the `PCA` function in the `FactoMineR` package to repeat the principal components analysis on the decathlon data, and display biplots for (PC1, PC2), (PC1, PC3), (PC1, PC4), and (PC2, PC3) without the individuals' labels. What relationships do you observe between the pairs or groups of track and field events from the plots?
+
+
 
