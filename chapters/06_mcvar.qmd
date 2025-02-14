@@ -2,31 +2,128 @@
 
 ### Q6.1
 
+Compute a Monte Carlo estimate of 
+$$
+\int_0^{\pi/3} \sin(t) \; dt
+$$
+
+
+
 ### Q6.2
+
+Refer to Example 6.3. Compute a Monte Carlo estimate of the standard normal cdf, by generating from the Uniform(0,$x$) distribution. Compare your estimates with the normal cdf function `pnorm`. Compute an estimate of the variance of your Monte Carlo estiamte of $\Phi(2)$, and a 95% confidence interval for $\Phi(2)$.
+
+
 
 ### Q6.3
 
+Compute a Monte Carlo estimate $\hat{\theta}$ of 
+$$
+\theta = \int_0^{0.5} e^{-x} \; dx
+$$
+
+by sampling from Uniform(0, 0.5) and estimate the variance of $\hat{\theta}$. Find another Monte Carlo estimator $\theta^*$ by sampling from the exponential distribution. Which of the variances (of $\hat{\theta}$ and $\hat{\theta}^*$) is smaller, and why?
+
+
+
 ### Q6.4
+
+Write a function to compute a monte Carlo estimate of the Beta(3,3) cdf, and use the function to estimate $F(x)$ for $x=0.1, 0.2, \ldots, 0.9$. Compare the estimates with the values returned by the `pbeta` function in R.
+
+
 
 ### Q6.5
 
+Compute (empirically) the efficiency of the sample mean Monte Carlo method of etimation of the definite integral in Example 6.3 relative to the "hit or miss" method in Example 6.4.
+
+
+
 ### Q6.6
+
+In Example 6.7 the control variate approach was illustrated for Monte Carlo integration of
+$$
+\theta = \int_0^1 e^x \; dx
+$$
+
+Now consider the antithetic variate approach. Compute $\text{cov}(e^U, e^{1-U})$ and $\text{var}(e^U + e^{1-U})$, where $U \sim \text{Uniform}(0,1)$. What is the percent reduction in variance of $\hat{\theta}$ that can be achieved using antithetic variates (compared with simple MC)?
+
+
 
 ### Q6.7
 
+Refer to Exercise 6.6. Use a Monte Carlo simulation to estimate $\theta$ by the antithetic variate approach and by the simple Monte Carlo method. Compute an empirical estimate of the percent reduction in variance using the antithetic variate. Compare the result with the theoretical value from Exercise 6.6.
+
+
+
 ### Q6.8
+
+Let $U \sim \text{Uniform}(0,1)$, $X = aU$, and $X' = a(1-U)$, where $a$ is a constant. Show that $\rho(X,X') = -1$. Is $\rho(X,X') = -1$ is $U$ is a symmetric beta random variable?
+
+
 
 ### Q6.9
 
+The Rayleigh density [162, (18.67)] is 
+$$
+f(x) = \frac{x}{\sigma^2} e^{-x^2/(2\sigma^2)}, \hspace{2em} x\ge0,\; \sigma > 0
+$$
+
+Implement a function to generate samples from a Rayleigh($\sigma$) distribution, using antithetic variables. What is the percent reduction in variance of $(X+X')/2$ compared with $(X_1 + X_2)/2$ for independent $X_1, X_2$?
+
+
+
 ### Q6.10
+
+Use Monte Carlo integration with antithetic variables to estimate 
+$$
+int_0^1 \frac{e^x}{1+x^2} \; dx
+$$
+
+and find the approximate reduction in variance as a percentage of the variance without variance reduction.
+
 
 ### Q6.11
 
+If $\hat{\theta}_1$ and $\hat{\theta}_2$ are unbiated estimators of $\theta$, and $\hat{\theta}_1$ and $\hat{\theta}_2$ are antithetic, we derived that $c^* = 1/2$ is the optimal constant that minimizes the variance of $\hat{\theta}_c = c\hat{\theta}_1 + (1-c)\hat{\theta}_2$. Derive $c^*$ for the general case. That is, if $\hat{\theta}_1$ and $\hat{\theta}_2$ are any two unbiated estimators of $\theta$, find the value $c^*$ that minimizes the variance of the estimator $\hat{\theta}_c = c\hat{\theta}_1 + (1-c)\hat{\theta}_2$ in equation (6.11). ($c^*$ will be a function of the variances and the covariance of the estimators.)
+
+
+
 ### Q6.12
+
+Let $\hat{\theta}_f^{IS}$ be an importance sampling estimator of $\theta = \int g(x) dx$, where the importance function $f$ is a density. Prove that if $g(x) / f(x)$ is bounded, then the variance of the importance sampling estimator $\hat{\theta}_f^{IS}$ is finite.
+
+
 
 ### Q6.13
 
+Find two importance functions $f_1$ and $f_2$ that are supported on $(1, \infty)$ and are "close" to
+$$
+g(x) = \frac{x^2}{\sqrt{2\pi}}e^{-x^2/2}
+$$
+
+Which of your two importance functions should produce the smaller variance in estimating
+$$
+\int_1^\infty \frac{x^2}{\sqrt{2\pi}}e^{-x^2/2} \; dx
+$$
+
+by importance sampling? Explain.
+
+
+
 ### Q6.14
 
+Obtain a Monte Carlo estimate of 
+$$
+\int_1^\infty \frac{x^2}{\sqrt{2\pi}}e^{-x^2/2} \; dx
+$$
+
+by importance sampling.
+
+
+
 ### Q6.15
+
+Obtain the stratefied importance sampling estimate in Example 6.14 and compare it with the result of Example 6.11.
+
+
 

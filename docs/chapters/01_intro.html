@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,12 +71,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-fdf964b8551a4c1da979a829183e41b0.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -364,14 +364,14 @@ window.Quarto = {
 </section>
 <section id="q1.4a" class="level3">
 <h3 class="anchored" data-anchor-id="q1.4a">Q1.4a</h3>
-<p>Write an R function <code>f</code> in R to implement the function <span class="math inline">\(f(x) = (x-a)/b\)</span> that will transform an imput vector <span class="math inline">\(x\)</span> and return the result. The function should take three input arguments: <code>x</code>, <code>a</code>, and <code>b</code>.</p>
+<p>Write an R function <code>f</code> in R to implement the function <span class="math inline">\(f(x) = (x-a)/b\)</span> that will transform an input vector <span class="math inline">\(x\)</span> and return the result. The function should take three input arguments: <code>x</code>, <code>a</code>, and <code>b</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x, a, b) (x<span class="sc">-</span>a)<span class="sc">/</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="q1.4b" class="level3">
 <h3 class="anchored" data-anchor-id="q1.4b">Q1.4b</h3>
-<p>To transform <span class="math inline">\(x\)</span> to the interval <span class="math inline">\([0,1]\)</span> we subtract the minimum value and divice by the range: <code>y &lt;- f(x, a=min(x), b=max(x)-min(x))</code>. Generate a random sample of a Normal(<span class="math inline">\(\mu=2\)</span>, <span class="math inline">\(\sigma=2\)</span>) data using <code>rnorm</code> and use your function <code>f</code> to transform this sample to the interval <span class="math inline">\([0,1]\)</span>. Print a <code>summary</code> of both the sample <code>x</code> and the transformed sample <code>y</code> to check the result.</p>
+<p>To transform <span class="math inline">\(x\)</span> to the interval <span class="math inline">\([0,1]\)</span> we subtract the minimum value and divide by the range: <code>y &lt;- f(x, a=min(x), b=max(x)-min(x))</code>. Generate a random sample of a Normal(<span class="math inline">\(\mu=2\)</span>, <span class="math inline">\(\sigma=2\)</span>) data using <code>rnorm</code> and use your function <code>f</code> to transform this sample to the interval <span class="math inline">\([0,1]\)</span>. Print a <code>summary</code> of both the sample <code>x</code> and the transformed sample <code>y</code> to check the result.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean=</span><span class="dv">2</span>, <span class="at">sd=</span><span class="dv">2</span>)</span>
@@ -404,14 +404,16 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="q1.6">Q1.6</h3>
 <p>Using your function <code>f</code> of Exercise 1.4, center and scale your Normal(<span class="math inline">\(\mu=2\)</span>, <span class="math inline">\(\sigma=2\)</span>) sample by subtracting the sample median and dividing by the sample interquartile range (<code>IQR</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">f</span>(x, <span class="at">a=</span><span class="fu">median</span>(x), <span class="at">b=</span><span class="fu">IQR</span>(x))</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(z, y, <span class="at">pch=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="01_intro_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">f</span>(x, <span class="at">a=</span><span class="fu">median</span>(x), <span class="at">b=</span><span class="fu">IQR</span>(x))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">x=</span>x, <span class="at">w=</span>w) <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       x                 w          
+ Min.   :-2.6914   Min.   :-1.4351  
+ 1st Qu.: 0.2093   1st Qu.:-0.3737  
+ Median : 1.2307   Median : 0.0000  
+ Mean   : 1.6865   Mean   : 0.1667  
+ 3rd Qu.: 2.9424   3rd Qu.: 0.6263  
+ Max.   : 7.0980   Max.   : 2.1468  </code></pre>
 </div>
 </div>
 </section>
@@ -419,11 +421,11 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="q1.7">Q1.7</h3>
 <p>Refer to Example 1.14 where we displayed an array of scatterplots using <code>ggplot</code> with <code>facet_wrap</code>. One of the variables in the <code>mpg</code> data is <code>drv</code>, a characer vector indicating whether the vehicle is front-wheel drive, real-wheel drive, or four-wheel drive. Add <code>color=drv</code> in <code>aes</code>: <code>aes(displ, hwy, color=drv)</code> and display the revised plot. Your scatterplots should now have automatically generated a legend for <code>drv</code> color.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(displ, hwy, <span class="at">color=</span>drv)) <span class="sc">+</span> </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(displ, hwy, <span class="at">color=</span>drv)) <span class="sc">+</span> </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -436,7 +438,7 @@ window.Quarto = {
 <section id="q1.8" class="level3">
 <h3 class="anchored" data-anchor-id="q1.8">Q1.8</h3>
 <p>This exercise is intented to serve as an introduction to report writing with R Markdown. Install the <em>knitr</em> package if it is not installed. Create an html report using R Markdown and knitr in RStudio. The report whould include the code and output of Examples 1.12 and 1.14 with appropriate headings and a brief explanation of each example.</p>
-<p><em>Solution Omitted.</em></p>
+<p><em>Solution Omitted. Note that Quarto supersedes RMarkdown. Visit <a href="https://quarto.org/">https://quarto.org/</a> to learn more.</em></p>
 
 
 </section>
@@ -668,8 +670,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -780,7 +780,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

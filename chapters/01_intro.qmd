@@ -37,7 +37,7 @@ lines(density(x), col="firebrick", lwd=2)
 
 ### Q1.4a 
 
-Write an R function `f` in R to implement the function $f(x) = (x-a)/b$ that will transform an imput vector $x$ and return the result. The function should take three input arguments: `x`, `a`, and `b`.
+Write an R function `f` in R to implement the function $f(x) = (x-a)/b$ that will transform an input vector $x$ and return the result. The function should take three input arguments: `x`, `a`, and `b`.
 
 ```{r}
 f <- function(x, a, b) (x-a)/b
@@ -47,7 +47,7 @@ f <- function(x, a, b) (x-a)/b
 
 ### Q1.4b 
 
-To transform $x$ to the interval $[0,1]$ we subtract the minimum value and divice by the range: `y <- f(x, a=min(x), b=max(x)-min(x))`. Generate a random sample of a Normal($\mu=2$, $\sigma=2$) data using `rnorm` and use your function `f` to transform this sample to the interval $[0,1]$. Print a `summary` of both the sample `x` and the transformed sample `y` to check the result.
+To transform $x$ to the interval $[0,1]$ we subtract the minimum value and divide by the range: `y <- f(x, a=min(x), b=max(x)-min(x))`. Generate a random sample of a Normal($\mu=2$, $\sigma=2$) data using `rnorm` and use your function `f` to transform this sample to the interval $[0,1]$. Print a `summary` of both the sample `x` and the transformed sample `y` to check the result.
 
 ```{r}
 set.seed(1234)
@@ -74,8 +74,8 @@ c(mean=mean(z), sd=sd(z)) |> round(10)
 Using your function `f` of Exercise 1.4, center and scale your Normal($\mu=2$, $\sigma=2$) sample by subtracting the sample median and dividing by the sample interquartile range (`IQR`). 
 
 ```{r}
-y <- f(x, a=median(x), b=IQR(x))
-plot(z, y, pch=20)
+w <- f(x, a=median(x), b=IQR(x))
+data.frame(x=x, w=w) |> summary()
 ```
 
 
@@ -98,4 +98,5 @@ mpg |>
 
 This exercise is intented to serve as an introduction to report writing with R Markdown. Install the _knitr_ package if it is not installed. Create an html report using R Markdown and knitr in RStudio. The report whould include the code and output of Examples 1.12 and 1.14 with appropriate headings and a brief explanation of each example.
 
-_Solution Omitted._
+_Solution Omitted. Note that Quarto supersedes RMarkdown. Visit [https://quarto.org/](https://quarto.org/) to learn more._
+
