@@ -71,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -256,36 +285,52 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="q8.1" class="level3">
 <h3 class="anchored" data-anchor-id="q8.1">Q8.1</h3>
+<p>Compute a jackknife estimate of the bias and the standard error fo the correlation statistic in Example 8.2.</p>
 </section>
 <section id="q8.2" class="level3">
 <h3 class="anchored" data-anchor-id="q8.2">Q8.2</h3>
+<p>Refer to tge <code>law</code> data (package <code>bootstrap</code>). Use the jackknife-after-bootstrap method to estimate the standard error of the bootstrap estimate of <span class="math inline">\(se(R)\)</span>.</p>
 </section>
 <section id="q8.3" class="level3">
 <h3 class="anchored" data-anchor-id="q8.3">Q8.3</h3>
+<p>Obtain a bootstrat <span class="math inline">\(t\)</span> confidence interval estimate for the correlation statistic in Example 8.2 (<code>law</code> data in <code>bootstrap</code>).</p>
 </section>
 <section id="q8.4" class="level3">
 <h3 class="anchored" data-anchor-id="q8.4">Q8.4</h3>
+<p>Refer to the hair-conditioning data set <code>aircondit</code> provided in the <code>boot</code> package. The 12 observations are the times in hours between failures of air-conditioning equipment: 3, 5, 7, 18, 43, 85, 91, 98, 100, 130, 230, 487. Assume that the times between failures follow an exponential model Exp(<span class="math inline">\(\lambda\)</span>). Obtain the MLE of the hazard rate <span class="math inline">\(\lambda\)</span> and use bootstrap to estimate the bias and standard error of the estimate.</p>
 </section>
 <section id="q8.5" class="level3">
 <h3 class="anchored" data-anchor-id="q8.5">Q8.5</h3>
+<p>Refer to Exercise 8.4. Compute the 95% bootstrap confidence intervals for the mean time between failures <span class="math inline">\(1/\lambda\)</span> by the standard normal, basic, percentile, and BCa methods. Compare the intervals and explain why they may differ.</p>
 </section>
 <section id="q8.6" class="level3">
 <h3 class="anchored" data-anchor-id="q8.6">Q8.6</h3>
+<p>Efron and Tibshirani discuss the <code>scor</code> (package <code>bootstrap</code>) test score data on 88 students who took examinations in five subjects. The first two tests (mechanics, vectors) were closed book and the last three tests (algebra, analysis, statistics) were open book. Each row of the data frame is a set of scores <span class="math inline">\((x_{i1}, \ldots, x_{xi5})\)</span> for the <span class="math inline">\(i^\textrm{th}\)</span> student. Use a panel display to display the scatter plots for each pair of test scores. Compare the plot with the sample correlation matrix. Obtain bootstrap estimates of the standard errors for each of the following estimates: <span class="math inline">\(\hat{\rho}_{12} = \hat{\rho}(\textrm{mec}, \textrm{vec})\)</span>, <span class="math inline">\(\hat{\rho}_{34} = \hat{\rho}(\textrm{alg}, \textrm{ana})\)</span>, <span class="math inline">\(\hat{\rho}_{35} = \hat{\rho}(\textrm{alg}, \textrm{sta})\)</span>, <span class="math inline">\(\hat{\rho}_{45} = \hat{\rho}(\textrm{ana}, \textrm{sta})\)</span>.</p>
 </section>
 <section id="q8.7" class="level3">
 <h3 class="anchored" data-anchor-id="q8.7">Q8.7</h3>
+<p>Refer to Exercise 8.6. Efron and Tibshirani discuss the following example. The five-dimensional scores data have a <span class="math inline">\(5 \times 5\)</span> covariance matrix <span class="math inline">\(\Sigma\)</span>, with positive eigenvalues <span class="math inline">\(\lambda_1 &gt; \ldots &gt; \lambda_5\)</span>. In principal components analysis <span class="math display">\[
+\theta = \frac{\lambda_1}{\sum_{j=1}^5\lambda_j}
+\]</span> measures the proportion of variance explained by the first principal component. Let <span class="math inline">\(\hat{\lambda}_1 &gt; \ldots &gt; \hat{\lambda}_5\)</span> be the eigenvalues of <span class="math inline">\(\hat{Sigma}\)</span>, where <span class="math inline">\(\hat{\Sigma}\)</span> is the MLE of <span class="math inline">\(\Sigma\)</span>. Compure the sample estimate <span class="math display">\[
+\hat{\theta} = \frac{\hat{\lambda}_1}{\sum_{j=1}^5\hat{\lambda}_j}
+\]</span> of <span class="math inline">\(\theta\)</span>. Use bootstrap to estimate the bias and standard error of <span class="math inline">\(\hat{\theta}\)</span>.</p>
 </section>
 <section id="q8.8" class="level3">
 <h3 class="anchored" data-anchor-id="q8.8">Q8.8</h3>
+<p>Refer to Exercise 8.7. Obtain the jackknife estimates of bias and standard error of <span class="math inline">\(\hat{\theta}\)</span>.</p>
 </section>
 <section id="q8.9" class="level3">
 <h3 class="anchored" data-anchor-id="q8.9">Q8.9</h3>
+<p>Refer to Exercise 8.7. Compute 95% percentile and BCa confidence intervals for <span class="math inline">\(\hat{\theta}\)</span>.</p>
+<p>NOTE to self: should it mbe <span class="math inline">\(\theta\)</span> not <span class="math inline">\(\hat{\theta}\)</span>. Typo for Rizzo?</p>
 </section>
 <section id="q8.10" class="level3">
 <h3 class="anchored" data-anchor-id="q8.10">Q8.10</h3>
+<p>In Example 8.17, leave-one-out (<span class="math inline">\(n\)</span>-fold) cross validation was used to select the best fitting model. Repeat the analysis replacing the Log-Log model with a cupib polynomial model. Whic of the four models is selected by the cross validation procedure? Which model is selected according to maximum adjusted <span class="math inline">\(R^2\)</span>?</p>
 </section>
 <section id="q8.11" class="level3">
 <h3 class="anchored" data-anchor-id="q8.11">Q8.11</h3>
+<p>In Example 8.17, leave-one-out (<span class="math inline">\(n\)</span>-fold) cross validation was used to select the best fitting model. Use leave-two-out cross validation to compare the models.</p>
 
 
 </section>

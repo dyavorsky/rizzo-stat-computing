@@ -2,65 +2,82 @@
 
 ### Q8.1
 
-
+Compute a jackknife estimate of the bias and the standard error fo the correlation statistic in Example 8.2.
 
 
 
 ### Q8.2
 
-
+Refer to tge `law` data (package `bootstrap`). Use the jackknife-after-bootstrap method to estimate the standard error of the bootstrap estimate of $se(R)$.
 
 
 
 ### Q8.3
 
-
+Obtain a bootstrat $t$ confidence interval estimate for the correlation statistic in Example 8.2 (`law` data in `bootstrap`).
 
 
 
 ### Q8.4
 
-
+Refer to the hair-conditioning data set `aircondit` provided in the `boot` package. The 12 observations are the times in hours between failures of air-conditioning equipment: 3, 5, 7, 18, 43, 85, 91, 98, 100, 130, 230, 487. Assume that the times between failures follow an exponential model Exp($\lambda$). Obtain the MLE of the hazard rate $\lambda$ and use bootstrap to estimate the bias and standard error of the estimate.
 
 
 
 ### Q8.5
 
-
+Refer to Exercise 8.4. Compute the 95% bootstrap confidence intervals for the mean time between failures $1/\lambda$ by the standard normal, basic, percentile, and BCa methods. Compare the intervals and explain why they may differ.
 
 
 
 ### Q8.6
 
-
+Efron and Tibshirani discuss the `scor` (package `bootstrap`) test score data on 88 students who took examinations in five subjects. The first two tests (mechanics, vectors) were closed book and the last three tests (algebra, analysis, statistics) were open book. Each row of the data frame is a set of scores $(x_{i1}, \ldots, x_{xi5})$ for the $i^\textrm{th}$ student. Use a panel display to display the scatter plots for each pair of test scores. Compare the plot with the sample correlation matrix. Obtain bootstrap estimates of the standard errors for each of the following estimates: 
+$\hat{\rho}_{12} = \hat{\rho}(\textrm{mec}, \textrm{vec})$, 
+$\hat{\rho}_{34} = \hat{\rho}(\textrm{alg}, \textrm{ana})$, 
+$\hat{\rho}_{35} = \hat{\rho}(\textrm{alg}, \textrm{sta})$, 
+$\hat{\rho}_{45} = \hat{\rho}(\textrm{ana}, \textrm{sta})$.
 
 
 
 ### Q8.7
 
-
+Refer to Exercise 8.6. Efron and Tibshirani discuss the following example. The five-dimensional scores data have a $5 \times 5$ covariance matrix $\Sigma$, with positive eigenvalues $\lambda_1 > \ldots > \lambda_5$. In principal components analysis 
+$$
+\theta = \frac{\lambda_1}{\sum_{j=1}^5\lambda_j}
+$$
+measures the proportion of variance explained by the first principal component. Let $\hat{\lambda}_1 > \ldots > \hat{\lambda}_5$ be the eigenvalues of $\hat{Sigma}$, where $\hat{\Sigma}$ is the MLE of $\Sigma$. Compure the sample estimate 
+$$
+\hat{\theta} = \frac{\hat{\lambda}_1}{\sum_{j=1}^5\hat{\lambda}_j}
+$$
+of $\theta$. Use bootstrap to estimate the bias and standard error of $\hat{\theta}$.
 
 
 
 ### Q8.8
 
-
+Refer to Exercise 8.7. Obtain the jackknife estimates of bias and standard error of $\hat{\theta}$.
 
 
 
 ### Q8.9
 
+Refer to Exercise 8.7. Compute 95% percentile and BCa confidence intervals for $\hat{\theta}$.
 
+NOTE to self: should it mbe $\theta$ not $\hat{\theta}$.  Typo for Rizzo?
 
 
 
 ### Q8.10
 
-
+In Example 8.17, leave-one-out ($n$-fold) cross validation was used to select the best fitting model. Repeat the analysis replacing the Log-Log model with a cupib polynomial model. Whic of the four models is selected by the cross validation procedure? Which model is selected according to maximum adjusted $R^2$?
 
 
 
 ### Q8.11
+
+In Example 8.17, leave-one-out ($n$-fold) cross validation was used to select the best fitting model. Use leave-two-out cross validation to compare the models.
+
 
 
 
