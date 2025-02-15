@@ -2,22 +2,71 @@
 
 ### Q7.1
 
+Estimate the MSE of the level $k$ trimmed means for random samples of size 20 generated from a standard Cauchy distribution. (The target parameter $\theta$ is the center or median; the expected value does not exist.) Summarize the estimates of MSE in a table for $k=1,2,\ldots,9$.
+
+
+
 ### Q7.2
+
+Plot the empirical power curve for the $t$-test in Example 7.9, changing the alternative hypothesis to $H_1$: $\mu \ne 500$, and keeping the significance level $\alpha = 0.05$.
+
+
 
 ### Q7.3
 
+Plot the empirical power curve for the $t$-test in Example 7.9 for sample sizes 10, 20, 30, 40, and 50, but omit the standard error bars. Plot the curves on the same graph, each in a different color or different line type, and include a legend. Comment on the relation between power and sample size.
+
+
+
 ### Q7.4
+
+Suppose that $X_1, \ldots, X_n$ are a random sample from a lognormal distribution. Construct a 95% confidence interval for the parameter $\mu$. Use a Monte Carlo method to obtain an empirical estimate of the confidence level when data is generated from standard lognormal.
+
+
 
 ### Q7.5
 
+Refer to Example 1.6 (run length endocing). Use simulation to estimate the probability that the observed maximum run length for the fair coin flipping experiment is in $[9,11]$ in sample size of 1000. Use the results of your simulation to estimate the standard error of the maximum run length for this experiment. Suppose that you observe 1000 coin fips and the maximum run length was 9. Would you suspect that the coin is unfair? Explain.
+
+
+
 ### Q7.6
+
+Suppose a 95% symmetric $t$-interval is applied to estimate a mean, but the sample data are non-normal. Then the probability that the confidence interval covers the mean is not necessarily equal to 0.95. Use a Monte Carlo experiment to estimate the coverage probability of the $t$-interval for random samples of $\chi^2(2)$ data with sample size $n=20$. Compare your $t$-interval results with the simulation results in Example 7.4. (The $t$-interval should be more robust to departures from normality than the interval for variance.)
+
+
 
 ### Q7.7
 
+Estimate the 0.025, 0.05, 0.95, and 0.975 quantiles of the skewness $\sqrt{b_1}$ under normality by a Monte Carlo experiment. Compute the standard error of the estimates from (2.14) using the normal approximated quantiles with the quantiles of the large sample approximation $\sqrt{b_1} \approx N(0,6/n)$.
+
+
+
 ### Q7.8
+
+Estimate the power o fthe skewness test of normality against symmetric Beta($\alpha$,$\alpha$) distributions and comment on the results. Are the results different for heavy-tailed symmetric alternativers such at $t(\nu)$?
+
+
 
 ### Q7.9
 
+Refer to Example 7.16. Repeat the simulation, but also compute the $F$ test of equal variance at significance level $\hat{\alpha} \overset{\cdot}{=} 0.055$. Compare the power of the Count Five test and $F$ test for small, medium, and large sample sizes. (Recall that the $F$ test is not applicable for non-normal distributions.)
+
+
+
 ### Q7.10
+
+Let $X$ be a non-negative random variable with $\mu = E[X] < \infty$. For a random sample $x_1, \ldots, x_n$ from the distribution of $X$, the Gini ratio is defined by
+$$
+G = \frac{1}{2n^2\mu} \sum_{j=1}^n \sum_{i=1}^n \vert x_i - x_j \vert
+$$
+
+The Giri ration is applied in economics to measure inequality in income distribution. Note that $G$ can be written in terms of the order statistics $x_{(i)}$ as 
+$$
+G = \frac{1}{n^2\mu} \sum_{i=1}^n (2i-n-1)x_{(i)}
+$$
+
+If the mean is unknown, let $\hat{G}$ be the statistic $G$ with $\mu$ replaced by $\bar{x}$. Estimate by simulation the mean, median, and deciles of $\hat{G}$ if $X$ is standard lognormal. Repeat the procedure for the uniform distribution and Bernoulli(0,1). Also construct density histograms of the replicates in each case.
+
 
 

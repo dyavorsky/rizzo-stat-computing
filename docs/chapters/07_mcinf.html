@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,12 +37,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-fdf964b8551a4c1da979a829183e41b0.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -71,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -255,33 +284,49 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="q7.1" class="level3">
 <h3 class="anchored" data-anchor-id="q7.1">Q7.1</h3>
+<p>Estimate the MSE of the level <span class="math inline">\(k\)</span> trimmed means for random samples of size 20 generated from a standard Cauchy distribution. (The target parameter <span class="math inline">\(\theta\)</span> is the center or median; the expected value does not exist.) Summarize the estimates of MSE in a table for <span class="math inline">\(k=1,2,\ldots,9\)</span>.</p>
 </section>
 <section id="q7.2" class="level3">
 <h3 class="anchored" data-anchor-id="q7.2">Q7.2</h3>
+<p>Plot the empirical power curve for the <span class="math inline">\(t\)</span>-test in Example 7.9, changing the alternative hypothesis to <span class="math inline">\(H_1\)</span>: <span class="math inline">\(\mu \ne 500\)</span>, and keeping the significance level <span class="math inline">\(\alpha = 0.05\)</span>.</p>
 </section>
 <section id="q7.3" class="level3">
 <h3 class="anchored" data-anchor-id="q7.3">Q7.3</h3>
+<p>Plot the empirical power curve for the <span class="math inline">\(t\)</span>-test in Example 7.9 for sample sizes 10, 20, 30, 40, and 50, but omit the standard error bars. Plot the curves on the same graph, each in a different color or different line type, and include a legend. Comment on the relation between power and sample size.</p>
 </section>
 <section id="q7.4" class="level3">
 <h3 class="anchored" data-anchor-id="q7.4">Q7.4</h3>
+<p>Suppose that <span class="math inline">\(X_1, \ldots, X_n\)</span> are a random sample from a lognormal distribution. Construct a 95% confidence interval for the parameter <span class="math inline">\(\mu\)</span>. Use a Monte Carlo method to obtain an empirical estimate of the confidence level when data is generated from standard lognormal.</p>
 </section>
 <section id="q7.5" class="level3">
 <h3 class="anchored" data-anchor-id="q7.5">Q7.5</h3>
+<p>Refer to Example 1.6 (run length endocing). Use simulation to estimate the probability that the observed maximum run length for the fair coin flipping experiment is in <span class="math inline">\([9,11]\)</span> in sample size of 1000. Use the results of your simulation to estimate the standard error of the maximum run length for this experiment. Suppose that you observe 1000 coin fips and the maximum run length was 9. Would you suspect that the coin is unfair? Explain.</p>
 </section>
 <section id="q7.6" class="level3">
 <h3 class="anchored" data-anchor-id="q7.6">Q7.6</h3>
+<p>Suppose a 95% symmetric <span class="math inline">\(t\)</span>-interval is applied to estimate a mean, but the sample data are non-normal. Then the probability that the confidence interval covers the mean is not necessarily equal to 0.95. Use a Monte Carlo experiment to estimate the coverage probability of the <span class="math inline">\(t\)</span>-interval for random samples of <span class="math inline">\(\chi^2(2)\)</span> data with sample size <span class="math inline">\(n=20\)</span>. Compare your <span class="math inline">\(t\)</span>-interval results with the simulation results in Example 7.4. (The <span class="math inline">\(t\)</span>-interval should be more robust to departures from normality than the interval for variance.)</p>
 </section>
 <section id="q7.7" class="level3">
 <h3 class="anchored" data-anchor-id="q7.7">Q7.7</h3>
+<p>Estimate the 0.025, 0.05, 0.95, and 0.975 quantiles of the skewness <span class="math inline">\(\sqrt{b_1}\)</span> under normality by a Monte Carlo experiment. Compute the standard error of the estimates from (2.14) using the normal approximated quantiles with the quantiles of the large sample approximation <span class="math inline">\(\sqrt{b_1} \approx N(0,6/n)\)</span>.</p>
 </section>
 <section id="q7.8" class="level3">
 <h3 class="anchored" data-anchor-id="q7.8">Q7.8</h3>
+<p>Estimate the power o fthe skewness test of normality against symmetric Beta(<span class="math inline">\(\alpha\)</span>,<span class="math inline">\(\alpha\)</span>) distributions and comment on the results. Are the results different for heavy-tailed symmetric alternativers such at <span class="math inline">\(t(\nu)\)</span>?</p>
 </section>
 <section id="q7.9" class="level3">
 <h3 class="anchored" data-anchor-id="q7.9">Q7.9</h3>
+<p>Refer to Example 7.16. Repeat the simulation, but also compute the <span class="math inline">\(F\)</span> test of equal variance at significance level <span class="math inline">\(\hat{\alpha} \overset{\cdot}{=} 0.055\)</span>. Compare the power of the Count Five test and <span class="math inline">\(F\)</span> test for small, medium, and large sample sizes. (Recall that the <span class="math inline">\(F\)</span> test is not applicable for non-normal distributions.)</p>
 </section>
 <section id="q7.10" class="level3">
 <h3 class="anchored" data-anchor-id="q7.10">Q7.10</h3>
+<p>Let <span class="math inline">\(X\)</span> be a non-negative random variable with <span class="math inline">\(\mu = E[X] &lt; \infty\)</span>. For a random sample <span class="math inline">\(x_1, \ldots, x_n\)</span> from the distribution of <span class="math inline">\(X\)</span>, the Gini ratio is defined by <span class="math display">\[
+G = \frac{1}{2n^2\mu} \sum_{j=1}^n \sum_{i=1}^n \vert x_i - x_j \vert
+\]</span></p>
+<p>The Giri ration is applied in economics to measure inequality in income distribution. Note that <span class="math inline">\(G\)</span> can be written in terms of the order statistics <span class="math inline">\(x_{(i)}\)</span> as <span class="math display">\[
+G = \frac{1}{n^2\mu} \sum_{i=1}^n (2i-n-1)x_{(i)}
+\]</span></p>
+<p>If the mean is unknown, let <span class="math inline">\(\hat{G}\)</span> be the statistic <span class="math inline">\(G\)</span> with <span class="math inline">\(\mu\)</span> replaced by <span class="math inline">\(\bar{x}\)</span>. Estimate by simulation the mean, median, and deciles of <span class="math inline">\(\hat{G}\)</span> if <span class="math inline">\(X\)</span> is standard lognormal. Repeat the procedure for the uniform distribution and Bernoulli(0,1). Also construct density histograms of the replicates in each case.</p>
 
 
 </section>
@@ -513,6 +558,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -623,6 +670,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
