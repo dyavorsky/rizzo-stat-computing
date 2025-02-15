@@ -2,16 +2,62 @@
 
 ### Q9.1
 
+In jackknife-after-bootstrap, show that the probability that a bootstram sample omits a given observation $i$ is asymptotically equal to $e^{-1}$ (about 0.368). That is, show that for large $n$ the proportion of bootstrap samples that omit observation $i$ is approximately equal to $e^{-1}$, $i=1, \ldots, n$.
+
+
+
 ### Q9.2
+
+a. Fit the simple linear model to the `DAAG::ironslag` data discussed in Example 8.16.
+
+b. Compute the modified residuals two ways and show that they are qual. Hint: try using the `all.equal` function to compare the results. Method 1: Use the definition and the `hatvalues` function. Method 2: Use the `rstandard` function with `sd=1`.
+
+c. Compute that hat values directly from the formula for $h_{jj}$. Check that your vector $h$ is identical to the `hatvalues` function result.
+
+
 
 ### Q9.3
 
+Refer to the `catsM` data in the `boot` package. 
+
+a. Display a fitted line plot (use basic R graphics) for the simple linear regression model predicting body weight (`Bwt`) from heat weight (`Hwt`).
+
+b. Display the fitted line plot using `ggplot2`.
+
+c. Display a plot of residuals vs. fits.
+
+d. Comment on the fit of this model. Are there any outliers? If so, identify these points by observation number.
+
+e. Based on your analysis above, to analyze the fit using bootstrap, choose a resampling method and explain your reasoning. 
+
+f. Bootstrap the slopes of this model and obtain a bootstrap estimate of the standard error of $\hat{\beta}_1$.
+
+g. Use jackknife-after-bootstrap to identify influential observations.
+
+
+
 ### Q9.4
+
+Implement the resampling cases method on the `MASS::mammals` data using the `boot` function. Compare your results for the bias and se.
+
+
 
 ### Q9.5
 
+To investiage the error distribution and influence, we would like to have bootstrapped estimates of the squared error. Suppose that a data set contains the response `y` and predictor `x`. Write a statistic function for use with the `boot` function that will return the MSE for the fitted simple linear regression model $y = \beta_0 + \beta_1x | varepsilon$. Test this function by generating random bivariate normal data and running an ordinary bootstrap of the MSE for the regression model.
+
+
+
 ### Q9.6
 
+Refer to the `mammals` data in the `MASS` package, discussed in this chapter. Use your solution to the previous problem to bootstrap the MSE of the model (9.4). Using the jackknife-after-bootstrap, identify which points are influential. Compare this with the influential points identified from the bootstrapped slopes.
+
+
+
 ### Q9.7
+
+Plot the bootstrapped intercepts from Example 9.9 using the `plot` method for `boot` with `jack=TRUE`. This displays a histogram of empirical influence values with a Q-Q plot, and a plot similar to `jack.after.boot` below. Identify influential observations from the plot. Are there points with standardized influence values larger than 2 in absolute value? Repeat this for the slopes by setting `index=2`. Do you find the same points influential in both plots?
+
+
 
 
