@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -71,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -252,24 +315,49 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="q10.1" class="level3">
 <h3 class="anchored" data-anchor-id="q10.1">Q10.1</h3>
+<p>Refer to Example 10.1 and Figure 10.1. Suppose that we want to test <span class="math inline">\(H_0: F = G\)</span>, where <span class="math inline">\(F\)</span> is the distribution of <code>wieght</code> for the <code>casein</code> feed group and <span class="math inline">\(G\)</span> is the distribution of <code>weight</code> for the <code>sunflower</code> feed group of the <code>chickwts</code> data. A test can be based on the two-sample Kolmogorov-Smirnov statistic as shown in Example 10.1. Display a histogram of the permutation replicates of the Kolmogorov-Smirnov two-sample test statistic for this test. Is the test significant at <span class="math inline">\(alpha = 0.10\)</span>?</p>
 </section>
 <section id="q10.2" class="level3">
 <h3 class="anchored" data-anchor-id="q10.2">Q10.2</h3>
+<p>Write a function to compute the two-sample Cramer-von Mises statistic. The Cramer-von Mises distance between distributions is: <span class="math display">\[
+w^2 = \int \int \left( F(x) - G(y) \right)^2 \; dH(x,y)
+\]</span> where <span class="math inline">\(H(x,y)\)</span> is the joint CDF of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. For a test of equal distributions, the corresponding test statistic is based on the joint empirical distributions, so it is a function of the ranks of the data. First compute the ranks <span class="math inline">\(r_k\)</span> of the <span class="math inline">\(X\)</span> sample, <span class="math inline">\(i=1,\ldots,n\)</span>, and the ranks <span class="math inline">\(s_j\)</span> of the <span class="math inline">\(Y\)</span> sample, <span class="math inline">\(j=1,\ldots,m\)</span> (see the <code>rank</code> function). Compute: <span class="math display">\[
+U = n \sum_{i=1}^n (r_i - i)^2 + m \sum_{j=1}^m (s_j - j)^2
+\]</span></p>
+<p>Note that <span class="math inline">\(U\)</span> can be vectorized and evaluated in one line of R code. Then te cramer-von Mises two-sample statistic is <span class="math display">\[
+W^2 = \frac{U}{nm(n+m)} - \frac{4mn-1}{6(m+n)}
+\]</span></p>
 </section>
 <section id="q10.3" class="level3">
 <h3 class="anchored" data-anchor-id="q10.3">Q10.3</h3>
+<p>Implement the two-sample Cramer-von Mises test for equal distributions as a permutation test using (10.14). Apply the test to the data in Examples 10;1 and 10.2 (NOTE should it be 10.3)?</p>
 </section>
 <section id="q10.4" class="level3">
 <h3 class="anchored" data-anchor-id="q10.4">Q10.4</h3>
+<p>An <span class="math inline">\(r^\textrm{th}\)</span> Nearest Neighbors test statistic for equal distributions: Write a function (for the <code>statistic</code> argument of the <code>boot</code> function) to compute the test statistic <span class="math inline">\(T_{n,r}\)</span> (10.6). The function syntax should be <code>Tnr(z, ix, sizes, nn)</code>.</p>
 </section>
 <section id="q10.5" class="level3">
 <h3 class="anchored" data-anchor-id="q10.5">Q10.5</h3>
+<p>The <code>iris</code> data is a four-dimensional distribution with measurement on three species of iris flowers. Using your function <code>Tnr</code> of Exercise 10.4 and the <code>boot</code> function, applyl your nearest neighbors statistic (<span class="math inline">\(r=2\)</span>) to test <span class="math inline">\(H_0: F=G\)</span> where <span class="math inline">\(F\)</span> is the distribution of the iris <em>setosa</em> species, ahnd <span class="math inline">\(G\)</span> is the distribution of the iris <em>virginica</em> species. Repeat the test with <span class="math inline">\(r=3\)</span> and <span class="math inline">\(r=4\)</span>.</p>
 </section>
 <section id="q10.6" class="level3">
 <h3 class="anchored" data-anchor-id="q10.6">Q10.6</h3>
+<p>A commonly applied statistic for dependence is Pearson’s product-moment correlation <span class="math inline">\(R\)</span> (13.2). For bivariate normal data, independence holds if and only if the population correlation coefficient <span class="math inline">\(\rho\)</span> is zero. One can apply a <span class="math inline">\(t\)</span>-test of independence based on <span class="math inline">\(R\)</span>. For non-normal data, a test based on ranks is often applied. However, a test for zero correlation is not a test for independence when the data are non-normal. It is possible that uncorrelated variables are dependent. Consider the following example where <span class="math inline">\(y=X^2\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Clearly, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are dependent.</p>
+<ol type="a">
+<li><p>Show that if <span class="math inline">\(X \sim \textrm{Uniform}(-1,1)\)</span> and <span class="math inline">\(Y=X^2\)</span> then <span class="math inline">\(\rho(X,Y) = 0\)</span>.</p></li>
+<li><p>Apply the correlation t-test to the simulated data <span class="math inline">\((x,y)\)</span> using <code>cor.test</code> to test the null hypothesis <span class="math inline">\(H_0: \rho(X,Y) = 0\)</span> vs <span class="math inline">\(H_1: \rho(X,Y) \ne 0\)</span>. Is the null hypothesis <span class="math inline">\(\rho = 0\)</span> rejected?</p></li>
+<li><p>Test <span class="math inline">\(H_0: X,Y\)</span> are independent vs.&nbsp;<span class="math inline">\(H_1: X,Y\)</span> are dependent using the distance covarnace test. (Use <code>dcov.test</code> in the <code>energy</code> package or follow Example 10.14.) Is the null hypothesis of independence rejected?</p></li>
+<li><p>Discuss and compare the results of both tests.</p></li>
+</ol>
 </section>
 <section id="q10.7" class="level3">
 <h3 class="anchored" data-anchor-id="q10.7">Q10.7</h3>
+<p>The Count 5 test for equal variances in Section 7.4 is based on the maximum number of extreme points. Example 7.15 shows that the Count 5 criterion is not applicable for unequal sample sizes. Implement a permutation test for equal variance based on the maximum number of extreme points that applies when samples sizes are not necessarily equal. Repeat Example 7.15 using the permutation test.</p>
 
 
 </section>
