@@ -71,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -247,9 +276,16 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="q14.1" class="level3">
 <h3 class="anchored" data-anchor-id="q14.1">Q14.1</h3>
+<p>Use the simplex algorithm to solve the following problem: Minimuze <span class="math inline">\(4x + 2y + z \le 2\)</span> subject to:</p>
+<p><span class="math display">\[
+2x + y + z \le 2 \\
+x = y + 3z \le 3 \\
+x \ge 0, y \ge 0, z \ge 0
+\]</span></p>
 </section>
 <section id="q14.2" class="level3">
 <h3 class="anchored" data-anchor-id="q14.2">Q14.2</h3>
+<p>In the Morra game, the set of optimal strategies are not changed if a constant is subtraced from every entry of th epayoff matrix, or a positive constant is multiplied times every entry of the payoff matrix. However, the simplex algorithm may terminate at a different basic feasible point (also optimal). Compute <code>B &lt;- A + 2</code>, find the solution of game <span class="math inline">\(B\)</span>, and verify that it is one of the extreme points (14.5) - (14.8) of the original game <span class="math inline">\(A\)</span>. Also find the value of game <span class="math inline">\(A\)</span> and game <span class="math inline">\(B\)</span>.</p>
 
 
 </section>

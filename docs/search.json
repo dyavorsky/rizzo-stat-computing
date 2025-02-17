@@ -144,7 +144,7 @@
     "href": "chapters/14_optim.html",
     "title": "14  Optimization",
     "section": "",
-    "text": "Q14.1\n\n\nQ14.2",
+    "text": "Q14.1\nUse the simplex algorithm to solve the following problem: Minimuze \\(4x + 2y + z \\le 2\\) subject to:\n\\[\n2x + y + z \\le 2 \\\\\nx = y + 3z \\le 3 \\\\\nx \\ge 0, y \\ge 0, z \\ge 0\n\\]\n\n\nQ14.2\nIn the Morra game, the set of optimal strategies are not changed if a constant is subtraced from every entry of th epayoff matrix, or a positive constant is multiplied times every entry of the payoff matrix. However, the simplex algorithm may terminate at a different basic feasible point (also optimal). Compute B &lt;- A + 2, find the solution of game \\(B\\), and verify that it is one of the extreme points (14.5) - (14.8) of the original game \\(A\\). Also find the value of game \\(A\\) and game \\(B\\).",
     "crumbs": [
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Optimization</span>"
     ]
