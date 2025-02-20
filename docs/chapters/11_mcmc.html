@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,12 +37,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-fdf964b8551a4c1da979a829183e41b0.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -316,7 +316,7 @@ f(x) = \frac{1}{\theta\pi(1 + [(x-\eta)/\theta]^2}, \hspace{2em} -\infty &lt; x 
 </section>
 <section id="q11.7" class="level3">
 <h3 class="anchored" data-anchor-id="q11.7">Q11.7</h3>
-<p>What effect, if any, does the width <span class="math inline">\(w\)</span> have on the mixing of the chain in Example 11.8? Repeat the simulation keeping the random number seed fixed, trying different proposal distributions based on the random increments from Uniform(<span class="math inline">\(-w\)</span>,<span class="math inline">\(w\)</span>), varying <span class="math inline">\(w\)</span>.</p>
+<p>What effect, if any, does the width <span class="math inline">\(w\)</span> have on the mixing of the chains in Example 11.8? Repeat the simulation keeping the random number seed fixed, trying different proposal distributions based on the random increments from Uniform(<span class="math inline">\(-w\)</span>,<span class="math inline">\(w\)</span>), varying <span class="math inline">\(w\)</span>.</p>
 </section>
 <section id="q11.8" class="level3">
 <h3 class="anchored" data-anchor-id="q11.8">Q11.8</h3>
@@ -354,7 +354,7 @@ f(x,y) \propto {n \choose x} y^{x+a-1} (1-y)^{n-x+b-1}, \hspace{2em} x=0,1,\ldot
 </section>
 <section id="q11.15" class="level3">
 <h3 class="anchored" data-anchor-id="q11.15">Q11.15</h3>
-<p>Refer to the chainge point application in Section 11.5. Compute a 95% highest posterior density interval (HPDI) for each of the parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\lambda\)</span>, and the change point <span class="math inline">\(k\)</span>. Do this using the <code>HPDi</code> function in this chapter. Compare the results obtained by converting the chains into an <code>mcmc</code> object, and use the <code>coda::HPDinterval</code> method on that object.</p>
+<p>Refer to the change point application in Section 11.5. Compute a 95% highest posterior density interval (HPDI) for each of the parameters <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\lambda\)</span>, and the change point <span class="math inline">\(k\)</span>. Do this using the <code>HPDi</code> function in this chapter. Compare the results obtained by converting the chains into an <code>mcmc</code> object, and use the <code>coda::HPDinterval</code> method on that object.</p>
 
 
 </section>
@@ -586,8 +586,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -698,7 +696,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
