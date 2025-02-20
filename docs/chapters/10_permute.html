@@ -315,7 +315,7 @@ window.Quarto = {
 
 <section id="q10.1" class="level3">
 <h3 class="anchored" data-anchor-id="q10.1">Q10.1</h3>
-<p>Refer to Example 10.1 and Figure 10.1. Suppose that we want to test <span class="math inline">\(H_0: F = G\)</span>, where <span class="math inline">\(F\)</span> is the distribution of <code>wieght</code> for the <code>casein</code> feed group and <span class="math inline">\(G\)</span> is the distribution of <code>weight</code> for the <code>sunflower</code> feed group of the <code>chickwts</code> data. A test can be based on the two-sample Kolmogorov-Smirnov statistic as shown in Example 10.1. Display a histogram of the permutation replicates of the Kolmogorov-Smirnov two-sample test statistic for this test. Is the test significant at <span class="math inline">\(alpha = 0.10\)</span>?</p>
+<p>Refer to Example 10.1 and Figure 10.1. Suppose that we want to test <span class="math inline">\(H_0: F = G\)</span>, where <span class="math inline">\(F\)</span> is the distribution of <code>weight</code> for the <code>casein</code> feed group and <span class="math inline">\(G\)</span> is the distribution of <code>weight</code> for the <code>sunflower</code> feed group of the <code>chickwts</code> data. A test can be based on the two-sample Kolmogorov-Smirnov statistic as shown in Example 10.1. Display a histogram of the permutation replicates of the Kolmogorov-Smirnov two-sample test statistic for this test. Is the test significant at <span class="math inline">\(\alpha = 0.10\)</span>?</p>
 </section>
 <section id="q10.2" class="level3">
 <h3 class="anchored" data-anchor-id="q10.2">Q10.2</h3>
@@ -324,13 +324,13 @@ w^2 = \int \int \left( F(x) - G(y) \right)^2 \; dH(x,y)
 \]</span> where <span class="math inline">\(H(x,y)\)</span> is the joint CDF of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. For a test of equal distributions, the corresponding test statistic is based on the joint empirical distributions, so it is a function of the ranks of the data. First compute the ranks <span class="math inline">\(r_k\)</span> of the <span class="math inline">\(X\)</span> sample, <span class="math inline">\(i=1,\ldots,n\)</span>, and the ranks <span class="math inline">\(s_j\)</span> of the <span class="math inline">\(Y\)</span> sample, <span class="math inline">\(j=1,\ldots,m\)</span> (see the <code>rank</code> function). Compute: <span class="math display">\[
 U = n \sum_{i=1}^n (r_i - i)^2 + m \sum_{j=1}^m (s_j - j)^2
 \]</span></p>
-<p>Note that <span class="math inline">\(U\)</span> can be vectorized and evaluated in one line of R code. Then te cramer-von Mises two-sample statistic is <span class="math display">\[
+<p>Note that <span class="math inline">\(U\)</span> can be vectorized and evaluated in one line of R code. Then the Cramer-von Mises two-sample statistic is <span class="math display">\[
 W^2 = \frac{U}{nm(n+m)} - \frac{4mn-1}{6(m+n)}
 \]</span></p>
 </section>
 <section id="q10.3" class="level3">
 <h3 class="anchored" data-anchor-id="q10.3">Q10.3</h3>
-<p>Implement the two-sample Cramer-von Mises test for equal distributions as a permutation test using (10.14). Apply the test to the data in Examples 10;1 and 10.2 (NOTE should it be 10.3)?</p>
+<p>Implement the two-sample Cramer-von Mises test for equal distributions as a permutation test using (10.14). Apply the test to the data in Examples 10.1 and 10.2 (NOTE should it be 10.3)?</p>
 </section>
 <section id="q10.4" class="level3">
 <h3 class="anchored" data-anchor-id="q10.4">Q10.4</h3>
@@ -338,11 +338,11 @@ W^2 = \frac{U}{nm(n+m)} - \frac{4mn-1}{6(m+n)}
 </section>
 <section id="q10.5" class="level3">
 <h3 class="anchored" data-anchor-id="q10.5">Q10.5</h3>
-<p>The <code>iris</code> data is a four-dimensional distribution with measurement on three species of iris flowers. Using your function <code>Tnr</code> of Exercise 10.4 and the <code>boot</code> function, applyl your nearest neighbors statistic (<span class="math inline">\(r=2\)</span>) to test <span class="math inline">\(H_0: F=G\)</span> where <span class="math inline">\(F\)</span> is the distribution of the iris <em>setosa</em> species, ahnd <span class="math inline">\(G\)</span> is the distribution of the iris <em>virginica</em> species. Repeat the test with <span class="math inline">\(r=3\)</span> and <span class="math inline">\(r=4\)</span>.</p>
+<p>The <code>iris</code> data is a four-dimensional distribution with measurement on three species of iris flowers. Using your function <code>Tnr</code> of Exercise 10.4 and the <code>boot</code> function, applyl your nearest neighbors statistic (<span class="math inline">\(r=2\)</span>) to test <span class="math inline">\(H_0: F=G\)</span> where <span class="math inline">\(F\)</span> is the distribution of the iris <em>setosa</em> species, and <span class="math inline">\(G\)</span> is the distribution of the iris <em>virginica</em> species. Repeat the test with <span class="math inline">\(r=3\)</span> and <span class="math inline">\(r=4\)</span>.</p>
 </section>
 <section id="q10.6" class="level3">
 <h3 class="anchored" data-anchor-id="q10.6">Q10.6</h3>
-<p>A commonly applied statistic for dependence is Pearson’s product-moment correlation <span class="math inline">\(R\)</span> (13.2). For bivariate normal data, independence holds if and only if the population correlation coefficient <span class="math inline">\(\rho\)</span> is zero. One can apply a <span class="math inline">\(t\)</span>-test of independence based on <span class="math inline">\(R\)</span>. For non-normal data, a test based on ranks is often applied. However, a test for zero correlation is not a test for independence when the data are non-normal. It is possible that uncorrelated variables are dependent. Consider the following example where <span class="math inline">\(y=X^2\)</span>.</p>
+<p>A commonly applied statistic for dependence is Pearson’s product-moment correlation <span class="math inline">\(R\)</span> (13.2). For bivariate normal data, independence holds if and only if the population correlation coefficient <span class="math inline">\(\rho\)</span> is zero. One can apply a <span class="math inline">\(t\)</span>-test of independence based on <span class="math inline">\(R\)</span>. For non-normal data, a test based on ranks is often applied. However, a test for zero correlation is not a test for independence when the data are non-normal. It is possible that uncorrelated variables are dependent. Consider the following example where <span class="math inline">\(Y=X^2\)</span>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

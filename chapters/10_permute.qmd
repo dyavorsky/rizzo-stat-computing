@@ -2,7 +2,7 @@
 
 ### Q10.1
 
-Refer to Example 10.1 and Figure 10.1. Suppose that we want to test $H_0: F = G$, where $F$ is the distribution of `wieght` for the `casein` feed group and $G$ is the distribution of `weight` for the `sunflower` feed group of the `chickwts` data. A test can be based on the two-sample Kolmogorov-Smirnov statistic as shown in Example 10.1. Display a histogram of the permutation replicates of the Kolmogorov-Smirnov two-sample test statistic for this test. Is the test significant at $alpha = 0.10$?
+Refer to Example 10.1 and Figure 10.1. Suppose that we want to test $H_0: F = G$, where $F$ is the distribution of `weight` for the `casein` feed group and $G$ is the distribution of `weight` for the `sunflower` feed group of the `chickwts` data. A test can be based on the two-sample Kolmogorov-Smirnov statistic as shown in Example 10.1. Display a histogram of the permutation replicates of the Kolmogorov-Smirnov two-sample test statistic for this test. Is the test significant at $\alpha = 0.10$?
 
 
 
@@ -17,7 +17,7 @@ $$
 U = n \sum_{i=1}^n (r_i - i)^2 + m \sum_{j=1}^m (s_j - j)^2
 $$
 
-Note that $U$ can be vectorized and evaluated in one line of R code. Then te cramer-von Mises two-sample statistic is
+Note that $U$ can be vectorized and evaluated in one line of R code. Then the Cramer-von Mises two-sample statistic is
 $$
 W^2 = \frac{U}{nm(n+m)} - \frac{4mn-1}{6(m+n)}
 $$
@@ -26,7 +26,7 @@ $$
 
 ### Q10.3
 
-Implement the two-sample Cramer-von Mises test for equal distributions as a permutation test using (10.14). Apply the test to the data in Examples 10;1 and 10.2 (NOTE should it be 10.3)?
+Implement the two-sample Cramer-von Mises test for equal distributions as a permutation test using (10.14). Apply the test to the data in Examples 10.1 and 10.2 (NOTE should it be 10.3)?
 
 
 
@@ -38,13 +38,13 @@ An $r^\textrm{th}$ Nearest Neighbors test statistic for equal distributions: Wri
 
 ### Q10.5
 
-The `iris` data is a four-dimensional distribution with measurement on three species of iris flowers. Using your function `Tnr` of Exercise 10.4 and the `boot` function, applyl your nearest neighbors statistic ($r=2$) to test $H_0: F=G$ where $F$ is the distribution of the iris _setosa_ species, ahnd $G$ is the distribution of the iris _virginica_ species. Repeat the test with $r=3$ and $r=4$.
+The `iris` data is a four-dimensional distribution with measurement on three species of iris flowers. Using your function `Tnr` of Exercise 10.4 and the `boot` function, applyl your nearest neighbors statistic ($r=2$) to test $H_0: F=G$ where $F$ is the distribution of the iris _setosa_ species, and $G$ is the distribution of the iris _virginica_ species. Repeat the test with $r=3$ and $r=4$.
 
 
 
 ### Q10.6
 
-A commonly applied statistic for dependence is Pearson's product-moment correlation $R$ (13.2). For bivariate normal data, independence holds if and only if the population correlation coefficient $\rho$ is zero. One can apply a $t$-test of independence based on $R$. For non-normal data, a test based on ranks is often applied. However, a test for zero correlation is not a test for independence when the data are non-normal. It is possible that uncorrelated variables are dependent. Consider the following example where $y=X^2$. 
+A commonly applied statistic for dependence is Pearson's product-moment correlation $R$ (13.2). For bivariate normal data, independence holds if and only if the population correlation coefficient $\rho$ is zero. One can apply a $t$-test of independence based on $R$. For non-normal data, a test based on ranks is often applied. However, a test for zero correlation is not a test for independence when the data are non-normal. It is possible that uncorrelated variables are dependent. Consider the following example where $Y=X^2$. 
 
 ```{r}
 #| eval: false
