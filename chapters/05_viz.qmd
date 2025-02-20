@@ -43,7 +43,7 @@ Construct a surface plot of the bivariate mixture in Exercise 5.3.
 
 ### Q5.6
 
-Repeat Exercise 5.3 for various different choices of the parameters of the mixture model, and compre the distributions through contour plots.
+Repeat Exercise 5.3 for various different choices of the parameters of the mixture model, and compare the distributions through contour plots.
 
 
 
@@ -102,7 +102,7 @@ so your transformed basis is simply $R$. The arrows are scaled so that they exte
 
 ### Q5.14
 
-The `Hitters` data set is provided in the package `ISLR`. This data contains salary information and tatistics for Major League Baseball players in the USA. All of the 19 variables (excluding `Salary`) are possible predictor variables for a model to predict player salary. In this exercise, you will apply principal components analysis on the predictors. 
+The `Hitters` data set is provided in the package `ISLR`. This data contains salary information and statistics for Major League Baseball players in the USA. All of the 19 variables (excluding `Salary`) are possible predictor variables for a model to predict player salary. In this exercise, you will apply principal components analysis on the predictors. 
 
 a. Review the structure of the data frame with `str` and note which variables are factors. Create a new data frame omitting `Salary`. Then convert the factor variables to integers $\{0,1\}$ (they are binary so this is not a problem).
 
@@ -118,7 +118,7 @@ e. Interpret and discuss the results of PCA on this data.
 
 ### Q5.15
 
-Refer to Exercise 5.14 and the `Hitters (ISRL)` data set.
+Refer to Exercise 5.14 and the `Hitters` (`ISRL`) data set.
 
 a. After removing the `Salary` variable, covert the three factor variables to binary $\{0,1\}$ data.
 

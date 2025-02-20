@@ -44,7 +44,7 @@ Implement the resampling cases method on the `MASS::mammals` data using the `boo
 
 ### Q9.5
 
-To investiage the error distribution and influence, we would like to have bootstrapped estimates of the squared error. Suppose that a data set contains the response `y` and predictor `x`. Write a statistic function for use with the `boot` function that will return the MSE for the fitted simple linear regression model $y = \beta_0 + \beta_1x | varepsilon$. Test this function by generating random bivariate normal data and running an ordinary bootstrap of the MSE for the regression model.
+To investiage the error distribution and influence, we would like to have bootstrapped estimates of the squared error. Suppose that a data set contains the response `y` and predictor `x`. Write a statistic function for use with the `boot` function that will return the MSE for the fitted simple linear regression model $y = \beta_0 + \beta_1x + \varepsilon$. Test this function by generating random bivariate normal data and running an ordinary bootstrap of the MSE for the regression model.
 
 
 

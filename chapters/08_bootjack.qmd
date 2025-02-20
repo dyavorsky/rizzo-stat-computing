@@ -8,7 +8,7 @@ Compute a jackknife estimate of the bias and the standard error fo the correlati
 
 ### Q8.2
 
-Refer to tge `law` data (package `bootstrap`). Use the jackknife-after-bootstrap method to estimate the standard error of the bootstrap estimate of $se(R)$.
+Refer to the `law` data (package `bootstrap`). Use the jackknife-after-bootstrap method to estimate the standard error of the bootstrap estimate of $se(R)$.
 
 
 
@@ -20,7 +20,7 @@ Obtain a bootstrat $t$ confidence interval estimate for the correlation statisti
 
 ### Q8.4
 
-Refer to the hair-conditioning data set `aircondit` provided in the `boot` package. The 12 observations are the times in hours between failures of air-conditioning equipment: 3, 5, 7, 18, 43, 85, 91, 98, 100, 130, 230, 487. Assume that the times between failures follow an exponential model Exp($\lambda$). Obtain the MLE of the hazard rate $\lambda$ and use bootstrap to estimate the bias and standard error of the estimate.
+Refer to the air-conditioning data set `aircondit` provided in the `boot` package. The 12 observations are the times in hours between failures of air-conditioning equipment: 3, 5, 7, 18, 43, 85, 91, 98, 100, 130, 230, 487. Assume that the times between failures follow an exponential model Exp($\lambda$). Obtain the MLE of the hazard rate $\lambda$ and use bootstrap to estimate the bias and standard error of the estimate.
 
 
 
@@ -46,7 +46,7 @@ Refer to Exercise 8.6. Efron and Tibshirani discuss the following example. The f
 $$
 \theta = \frac{\lambda_1}{\sum_{j=1}^5\lambda_j}
 $$
-measures the proportion of variance explained by the first principal component. Let $\hat{\lambda}_1 > \ldots > \hat{\lambda}_5$ be the eigenvalues of $\hat{Sigma}$, where $\hat{\Sigma}$ is the MLE of $\Sigma$. Compure the sample estimate 
+measures the proportion of variance explained by the first principal component. Let $\hat{\lambda}_1 > \ldots > \hat{\lambda}_5$ be the eigenvalues of $\hat{\Sigma}$, where $\hat{\Sigma}$ is the MLE of $\Sigma$. Compure the sample estimate 
 $$
 \hat{\theta} = \frac{\hat{\lambda}_1}{\sum_{j=1}^5\hat{\lambda}_j}
 $$
@@ -70,7 +70,7 @@ NOTE to self: should it mbe $\theta$ not $\hat{\theta}$.  Typo for Rizzo?
 
 ### Q8.10
 
-In Example 8.17, leave-one-out ($n$-fold) cross validation was used to select the best fitting model. Repeat the analysis replacing the Log-Log model with a cupib polynomial model. Whic of the four models is selected by the cross validation procedure? Which model is selected according to maximum adjusted $R^2$?
+In Example 8.17, leave-one-out ($n$-fold) cross validation was used to select the best fitting model. Repeat the analysis replacing the Log-Log model with a cubic polynomial model. Which of the four models is selected by the cross validation procedure? Which model is selected according to maximum adjusted $R^2$?
 
 
 

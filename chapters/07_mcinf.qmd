@@ -26,7 +26,7 @@ Suppose that $X_1, \ldots, X_n$ are a random sample from a lognormal distributio
 
 ### Q7.5
 
-Refer to Example 1.6 (run length endocing). Use simulation to estimate the probability that the observed maximum run length for the fair coin flipping experiment is in $[9,11]$ in sample size of 1000. Use the results of your simulation to estimate the standard error of the maximum run length for this experiment. Suppose that you observe 1000 coin fips and the maximum run length was 9. Would you suspect that the coin is unfair? Explain.
+Refer to Example 1.6 (run length encoding). Use simulation to estimate the probability that the observed maximum run length for the fair coin flipping experiment is in $[9,11]$ in sample size of 1000. Use the results of your simulation to estimate the standard error of the maximum run length for this experiment. Suppose that you observe 1000 coin fips and the maximum run length was 9. Would you suspect that the coin is unfair? Explain.
 
 
 
@@ -44,7 +44,7 @@ Estimate the 0.025, 0.05, 0.95, and 0.975 quantiles of the skewness $\sqrt{b_1}$
 
 ### Q7.8
 
-Estimate the power o fthe skewness test of normality against symmetric Beta($\alpha$,$\alpha$) distributions and comment on the results. Are the results different for heavy-tailed symmetric alternativers such at $t(\nu)$?
+Estimate the power of the skewness test of normality against symmetric Beta($\alpha$,$\alpha$) distributions and comment on the results. Are the results different for heavy-tailed symmetric alternativers such at $t(\nu)$?
 
 
 
@@ -61,7 +61,7 @@ $$
 G = \frac{1}{2n^2\mu} \sum_{j=1}^n \sum_{i=1}^n \vert x_i - x_j \vert
 $$
 
-The Giri ration is applied in economics to measure inequality in income distribution. Note that $G$ can be written in terms of the order statistics $x_{(i)}$ as 
+The Giri ratio is applied in economics to measure inequality in income distribution. Note that $G$ can be written in terms of the order statistics $x_{(i)}$ as 
 $$
 G = \frac{1}{n^2\mu} \sum_{i=1}^n (2i-n-1)x_{(i)}
 $$
