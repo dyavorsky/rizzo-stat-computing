@@ -34,7 +34,7 @@ Write a function to compute a monte Carlo estimate of the Beta(3,3) cdf, and use
 
 ### Q6.5
 
-Compute (empirically) the efficiency of the sample mean Monte Carlo method of etimation of the definite integral in Example 6.3 relative to the "hit or miss" method in Example 6.4.
+Compute (empirically) the efficiency of the sample mean Monte Carlo method of estimation of the definite integral in Example 6.3 relative to the "hit or miss" method in Example 6.4.
 
 
 
@@ -57,7 +57,7 @@ Refer to Exercise 6.6. Use a Monte Carlo simulation to estimate $\theta$ by the 
 
 ### Q6.8
 
-Let $U \sim \text{Uniform}(0,1)$, $X = aU$, and $X' = a(1-U)$, where $a$ is a constant. Show that $\rho(X,X') = -1$. Is $\rho(X,X') = -1$ is $U$ is a symmetric beta random variable?
+Let $U \sim \text{Uniform}(0,1)$, $X = aU$, and $X' = a(1-U)$, where $a$ is a constant. Show that $\rho(X,X') = -1$. Is $\rho(X,X') = -1$ if $U$ is a symmetric beta random variable?
 
 
 
@@ -76,7 +76,7 @@ Implement a function to generate samples from a Rayleigh($\sigma$) distribution,
 
 Use Monte Carlo integration with antithetic variables to estimate 
 $$
-int_0^1 \frac{e^x}{1+x^2} \; dx
+\int_0^1 \frac{e^x}{1+x^2} \; dx
 $$
 
 and find the approximate reduction in variance as a percentage of the variance without variance reduction.

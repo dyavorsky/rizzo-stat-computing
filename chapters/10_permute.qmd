@@ -2,17 +2,74 @@
 
 ### Q10.1
 
+Refer to Example 10.1 and Figure 10.1. Suppose that we want to test $H_0: F = G$, where $F$ is the distribution of `weight` for the `casein` feed group and $G$ is the distribution of `weight` for the `sunflower` feed group of the `chickwts` data. A test can be based on the two-sample Kolmogorov-Smirnov statistic as shown in Example 10.1. Display a histogram of the permutation replicates of the Kolmogorov-Smirnov two-sample test statistic for this test. Is the test significant at $\alpha = 0.10$?
+
+
+
 ### Q10.2
+
+Write a function to compute the two-sample Cramer-von Mises statistic. The Cramer-von Mises distance between distributions is:
+$$
+w^2 = \int \int \left( F(x) - G(y) \right)^2 \; dH(x,y)
+$$
+where $H(x,y)$ is the joint CDF of $X$ and $Y$. For a test of equal distributions, the corresponding test statistic is based on the joint empirical distributions, so it is a function of the ranks of the data. First compute the ranks $r_k$ of the $X$ sample, $i=1,\ldots,n$, and the ranks $s_j$ of the $Y$ sample, $j=1,\ldots,m$ (see the `rank` function). Compute:
+$$
+U = n \sum_{i=1}^n (r_i - i)^2 + m \sum_{j=1}^m (s_j - j)^2
+$$
+
+Note that $U$ can be vectorized and evaluated in one line of R code. Then the Cramer-von Mises two-sample statistic is
+$$
+W^2 = \frac{U}{nm(n+m)} - \frac{4mn-1}{6(m+n)}
+$$
+
+
 
 ### Q10.3
 
+Implement the two-sample Cramer-von Mises test for equal distributions as a permutation test using (10.14). Apply the test to the data in Examples 10.1 and 10.2 (NOTE should it be 10.3)?
+
+
+
 ### Q10.4
+
+An $r^\textrm{th}$ Nearest Neighbors test statistic for equal distributions: Write a function (for the `statistic` argument of the `boot` function) to compute the test statistic $T_{n,r}$ (10.6). The function syntax should be `Tnr(z, ix, sizes, nn)`.
+
+
 
 ### Q10.5
 
+The `iris` data is a four-dimensional distribution with measurement on three species of iris flowers. Using your function `Tnr` of Exercise 10.4 and the `boot` function, applyl your nearest neighbors statistic ($r=2$) to test $H_0: F=G$ where $F$ is the distribution of the iris _setosa_ species, and $G$ is the distribution of the iris _virginica_ species. Repeat the test with $r=3$ and $r=4$.
+
+
+
 ### Q10.6
 
+A commonly applied statistic for dependence is Pearson's product-moment correlation $R$ (13.2). For bivariate normal data, independence holds if and only if the population correlation coefficient $\rho$ is zero. One can apply a $t$-test of independence based on $R$. For non-normal data, a test based on ranks is often applied. However, a test for zero correlation is not a test for independence when the data are non-normal. It is possible that uncorrelated variables are dependent. Consider the following example where $Y=X^2$. 
+
+```{r}
+#| eval: false
+
+x <- runif(100, -1, 1)
+y <- x^2
+```
+
+Clearly, $X$ and $Y$ are dependent. 
+
+a. Show that if $X \sim \textrm{Uniform}(-1,1)$ and $Y=X^2$ then $\rho(X,Y) = 0$.
+
+b. Apply the correlation t-test to the simulated data $(x,y)$ using `cor.test` to test the null hypothesis $H_0: \rho(X,Y) = 0$ vs $H_1: \rho(X,Y) \ne 0$. Is the null hypothesis $\rho = 0$ rejected?
+
+c. Test $H_0: X,Y$ are independent vs. $H_1: X,Y$ are dependent using the distance covarnace test. (Use `dcov.test` in the `energy` package or follow Example 10.14.) Is the null hypothesis of independence rejected?
+
+d. Discuss and compare the results of both tests.
+
+
+
 ### Q10.7
+
+The Count 5 test for equal variances in Section 7.4 is based on the maximum number of extreme points. Example 7.15 shows that the Count 5 criterion is not applicable for unequal sample sizes. Implement a permutation test for equal variance based on the maximum number of extreme points that applies when samples sizes are not necessarily equal. Repeat Example 7.15 using the permutation test.
+
+
 
 
 

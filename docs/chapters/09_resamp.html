@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,12 +37,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-fdf964b8551a4c1da979a829183e41b0.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -71,6 +71,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -252,24 +281,44 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="q9.1" class="level3">
 <h3 class="anchored" data-anchor-id="q9.1">Q9.1</h3>
+<p>In jackknife-after-bootstrap, show that the probability that a bootstram sample omits a given observation <span class="math inline">\(i\)</span> is asymptotically equal to <span class="math inline">\(e^{-1}\)</span> (about 0.368). That is, show that for large <span class="math inline">\(n\)</span> the proportion of bootstrap samples that omit observation <span class="math inline">\(i\)</span> is approximately equal to <span class="math inline">\(e^{-1}\)</span>, <span class="math inline">\(i=1, \ldots, n\)</span>.</p>
 </section>
 <section id="q9.2" class="level3">
 <h3 class="anchored" data-anchor-id="q9.2">Q9.2</h3>
+<ol type="a">
+<li><p>Fit the simple linear model to the <code>DAAG::ironslag</code> data discussed in Example 8.16.</p></li>
+<li><p>Compute the modified residuals two ways and show that they are qual. Hint: try using the <code>all.equal</code> function to compare the results. Method 1: Use the definition and the <code>hatvalues</code> function. Method 2: Use the <code>rstandard</code> function with <code>sd=1</code>.</p></li>
+<li><p>Compute that hat values directly from the formula for <span class="math inline">\(h_{jj}\)</span>. Check that your vector <span class="math inline">\(h\)</span> is identical to the <code>hatvalues</code> function result.</p></li>
+</ol>
 </section>
 <section id="q9.3" class="level3">
 <h3 class="anchored" data-anchor-id="q9.3">Q9.3</h3>
+<p>Refer to the <code>catsM</code> data in the <code>boot</code> package.</p>
+<ol type="a">
+<li><p>Display a fitted line plot (use basic R graphics) for the simple linear regression model predicting body weight (<code>Bwt</code>) from heat weight (<code>Hwt</code>).</p></li>
+<li><p>Display the fitted line plot using <code>ggplot2</code>.</p></li>
+<li><p>Display a plot of residuals vs.&nbsp;fits.</p></li>
+<li><p>Comment on the fit of this model. Are there any outliers? If so, identify these points by observation number.</p></li>
+<li><p>Based on your analysis above, to analyze the fit using bootstrap, choose a resampling method and explain your reasoning.</p></li>
+<li><p>Bootstrap the slopes of this model and obtain a bootstrap estimate of the standard error of <span class="math inline">\(\hat{\beta}_1\)</span>.</p></li>
+<li><p>Use jackknife-after-bootstrap to identify influential observations.</p></li>
+</ol>
 </section>
 <section id="q9.4" class="level3">
 <h3 class="anchored" data-anchor-id="q9.4">Q9.4</h3>
+<p>Implement the resampling cases method on the <code>MASS::mammals</code> data using the <code>boot</code> function. Compare your results for the bias and se.</p>
 </section>
 <section id="q9.5" class="level3">
 <h3 class="anchored" data-anchor-id="q9.5">Q9.5</h3>
+<p>To investiage the error distribution and influence, we would like to have bootstrapped estimates of the squared error. Suppose that a data set contains the response <code>y</code> and predictor <code>x</code>. Write a statistic function for use with the <code>boot</code> function that will return the MSE for the fitted simple linear regression model <span class="math inline">\(y = \beta_0 + \beta_1x + \varepsilon\)</span>. Test this function by generating random bivariate normal data and running an ordinary bootstrap of the MSE for the regression model.</p>
 </section>
 <section id="q9.6" class="level3">
 <h3 class="anchored" data-anchor-id="q9.6">Q9.6</h3>
+<p>Refer to the <code>mammals</code> data in the <code>MASS</code> package, discussed in this chapter. Use your solution to the previous problem to bootstrap the MSE of the model (9.4). Using the jackknife-after-bootstrap, identify which points are influential. Compare this with the influential points identified from the bootstrapped slopes.</p>
 </section>
 <section id="q9.7" class="level3">
 <h3 class="anchored" data-anchor-id="q9.7">Q9.7</h3>
+<p>Plot the bootstrapped intercepts from Example 9.9 using the <code>plot</code> method for <code>boot</code> with <code>jack=TRUE</code>. This displays a histogram of empirical influence values with a Q-Q plot, and a plot similar to <code>jack.after.boot</code> below. Identify influential observations from the plot. Are there points with standardized influence values larger than 2 in absolute value? Repeat this for the slopes by setting <code>index=2</code>. Do you find the same points influential in both plots?</p>
 
 
 </section>
@@ -501,6 +550,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -611,6 +662,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
