@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -250,21 +279,40 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="q15.1" class="level3">
 <h3 class="anchored" data-anchor-id="q15.1">Q15.1</h3>
+<p>Suppose that we need to generate a sequence of odd integers from <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span>.</p>
+<ol type="a">
+<li><p>Show how to do this for <span class="math inline">\(n=15\)</span> using <code>seq</code>, <code>seq.int</code>, and the sequence operator <code>:</code>. What is the type of object returned in each case?</p></li>
+<li><p>Use <code>microbenchmark</code> in the <code>microbenchmark</code> package to compare the computing time of these three methods for a sequence of 1000 odd integers (length should be 1000). Display a violin plot of the benchmark results using <code>autoplot</code>.</p></li>
+<li><p>Which of these methods is fastest? Discuss why one method may be slower than the others.</p></li>
+</ol>
 </section>
 <section id="q15.2" class="level3">
 <h3 class="anchored" data-anchor-id="q15.2">Q15.2</h3>
+<p>Refer to Example 15.3. Repeat these comparisons using <code>microbenchmark</code> and display a violin plot of the results. Based on these timings, order these operations from fastest to slowest.</p>
 </section>
 <section id="q15.3" class="level3">
 <h3 class="anchored" data-anchor-id="q15.3">Q15.3</h3>
+<p>Refer to the following summary table from the microbenchmark timing experiment in Example 15.2.</p>
+<ol type="a">
+<li><p>Compute the “relative” running times (relative to the fastest mean time) for each of the mean times.</p></li>
+<li><p>What is the percent improvement in computing time for initializing othe ‘ones’ <span class="math inline">\(n \times 1\)</span> matrix if we initialize the matrix (labeled ‘ones’) rather thn use the function <code>as.matrix</code> (labeled ‘as.ones’)?</p></li>
+</ol>
 </section>
 <section id="q15.4" class="level3">
 <h3 class="anchored" data-anchor-id="q15.4">Q15.4</h3>
+<p>Reer to Example 3.19. Compare all of the methods of generating multivariate normal samples from Example 3.19 using the <code>benchmark</code> function in the <code>rbenchmark</code> package. See Example 15.3 to get started. Order the methods from fastest to slowest and compare the relative timings to those from Example 3.19.</p>
 </section>
 <section id="q15.5" class="level3">
 <h3 class="anchored" data-anchor-id="q15.5">Q15.5</h3>
+<p>Refer to Example 1.6 on run length encoding. Using <code>rle</code> to enode a sequence of integers could result in a different object size. The original sequence can be recovered using <code>inverse.rle</code>. Generate a random sample of size 10000 of a <span class="math inline">\(\textrm{Poisson}(\lambda = 2)\)</span> random variable, and use <code>rle</code> to encode the sample. Show that <code>inverse.rle</code> recovers the original sample using <code>all.equal</code>. Compare the object size of the original sample and the RLE object. Now change the Poisson parameter varying <span class="math inline">\(\lambda\)</span> along <span class="math inline">\(\{0.1, 0.5, 1, 2, 4, 8\}\)</span> and repeat the comparison of object sizes for each <span class="math inline">\(\lambda\)</span> with <span class="math inline">\(n=10000\)</span>. Does the object size of the original Poisson sample change? Does the size of the RLE object change? Summarize any pattern that you observe.</p>
 </section>
 <section id="q15.6" class="level3">
 <h3 class="anchored" data-anchor-id="q15.6">Q15.6</h3>
+<p>This exercise continues an analysis of baseball data from the application, Example 15.20, which was inspired by one of Jim Albert’s data science class exercises, “Top 10 WhIP Values”. WHIP stands for the mean number of walks and hits allowed per inning for a pitcher. In the <code>Pitching</code> data frame (<code>Lahman</code> package), <code>BB</code> is the number of walks, <code>H</code> is the number of hits, and <code>IPouts</code> is the number of outs. Use <code>str(Pitching)</code> to see more details. The WhIP statistic is defined by <span class="math display">\[
+\textrm{WHIP} = \frac{\textrm{BB} + \textrm{H}}{\textrm{IPouts} / 3}.
+\]</span></p>
+<p>For example, in 2016, Clayton Kershaw allowed 97 hits and 11 walks, generated 447 outs, and his WHIP statistic was <span class="math inline">\((11+97)/(447/3) = 0.725\)</span>. Pitchers with the lowest WHIP statistics have the bests performance according to this measure.</p>
+<p>Find and display the best 10 WHIP pitchers for 2015. Qualifying pitchers for this analysis are the ones where <span class="math inline">\(\textrm{IPouts} \ge 486\)</span>.</p>
 
 
 </section>

@@ -280,7 +280,7 @@ window.Quarto = {
 
 <section id="q13.1" class="level3">
 <h3 class="anchored" data-anchor-id="q13.1">Q13.1</h3>
-<p>The natural logarithm and exponential functions are inverses of each other, so that mathematically <span class="math inline">\(\log(\exp x) = \exp(\log x) = x\)</span>. Show by example that this property does not hold exactly in computer arithmetic. Does the identiy hold with near equality? (See <code>all.equal</code>.)</p>
+<p>The natural logarithm and exponential functions are inverses of each other, so that mathematically <span class="math inline">\(\log(\exp x) = \exp(\log x) = x\)</span>. Show by example that this property does not hold exactly in computer arithmetic. Does the identity hold with near equality? (See <code>all.equal</code>.)</p>
 </section>
 <section id="q13.2" class="level3">
 <h3 class="anchored" data-anchor-id="q13.2">Q13.2</h3>
@@ -292,10 +292,12 @@ P(X&lt;Y) = \sum_{k=\textrm{max}(r-b,0)}^{r-1} \frac{ {r+s-1 \choose k}{a+b-1 \c
 <section id="q13.3" class="level3">
 <h3 class="anchored" data-anchor-id="q13.3">Q13.3</h3>
 <ol type="a">
-<li>Write a function to compute the <span class="math inline">\(k^\textrm{th}\)</span> term in $$</li>
-</ol>
-<p>$$ where <span class="math inline">\(d \ge 1\)</span> is an integer, <span class="math inline">\(a\)</span> is a vector in <span class="math inline">\(\mathbb{R}^d\)</span>, and <span class="math inline">\(|| \cdot ||\)</span> denotes the Euclidean norm. Perform the arithmetic so that the coefficients can be computed for (almost) arbitrarily large <span class="math inline">\(k\)</span> and <span class="math inline">\(d\)</span>. (This sum converges for all <span class="math inline">\(a \in \mathbb{R}^d\)</span>.)</p>
-<ol start="2" type="a">
+<li><p>Write a function to compute the <span class="math inline">\(k^\textrm{th}\)</span> term in <span class="math display">\[
+\sum_{k=0}^\infty
+\frac{(-1)^k}{k!2^k}
+\frac{||a||^{2k+2}}{(2k+1)(2k+2)}
+\frac{\Gamma(\frac{d+1}{2})\Gamma(k+\frac{3}{2})}{\Gamma(k+\frac{d}{2}+1)}
+\]</span> where <span class="math inline">\(d \ge 1\)</span> is an integer, <span class="math inline">\(a\)</span> is a vector in <span class="math inline">\(\mathbb{R}^d\)</span>, and <span class="math inline">\(|| \cdot ||\)</span> denotes the Euclidean norm. Perform the arithmetic so that the coefficients can be computed for (almost) arbitrarily large <span class="math inline">\(k\)</span> and <span class="math inline">\(d\)</span>. (This sum converges for all <span class="math inline">\(a \in \mathbb{R}^d\)</span>.)</p></li>
 <li><p>Modify the function so that it computes and returns the sum.</p></li>
 <li><p>Evaluate the sum when <span class="math inline">\(a=(1,2)^T\)</span>.</p></li>
 </ol>
