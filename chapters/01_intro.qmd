@@ -4,6 +4,8 @@
 
 Generate a random sample $x_1, \ldots, x_{100}$ of data from the $t_4$ (df=4) distribution using the `rt` function.  Use the `MASS::truehist` function to display a probability histogram of the sample.
 
+_Answer:_
+
 ```{r}
 set.seed(1234)
 x <- rt(n=100, df=4)
@@ -16,6 +18,8 @@ MASS::truehist(x, las=1, col="#118ab2", border="grey80", nbins=20)
 
 Add the $t_4$ density curve (`dt`) to your histogram in Exercise 1.1 using the `curve` function with `add=TRUE`.
 
+_Answer:_
+
 ```{r}
 MASS::truehist(x, las=1, col="#118ab2", border="grey80", nbins=20)
 curve(dt(x, df=4), from=-4, to=4, add=T, type="l")
@@ -26,6 +30,8 @@ curve(dt(x, df=4), from=-4, to=4, add=T, type="l")
 ### Q1.3 
 
 Add an estimated density curve to your histogram in Exercise 1.2 using `density`. 
+
+_Answer:_
 
 ```{r}
 MASS::truehist(x, las=1, col="#118ab2", border="grey80", nbins=20)
@@ -39,6 +45,8 @@ lines(density(x), col="firebrick", lwd=2)
 
 Write an R function `f` in R to implement the function $f(x) = (x-a)/b$ that will transform an input vector $x$ and return the result. The function should take three input arguments: `x`, `a`, and `b`.
 
+_Answer:_
+
 ```{r}
 f <- function(x, a, b) (x-a)/b
 ```
@@ -48,6 +56,8 @@ f <- function(x, a, b) (x-a)/b
 ### Q1.4b 
 
 To transform $x$ to the interval $[0,1]$ we subtract the minimum value and divide by the range: `y <- f(x, a=min(x), b=max(x)-min(x))`. Generate a random sample of a Normal($\mu=2$, $\sigma=2$) data using `rnorm` and use your function `f` to transform this sample to the interval $[0,1]$. Print a `summary` of both the sample `x` and the transformed sample `y` to check the result.
+
+_Answer:_
 
 ```{r}
 set.seed(1234)
@@ -62,6 +72,8 @@ data.frame(x=x, y=y) |> summary()
 
 Refer to Exercise 1.4. Suppose that we want to transform the `x` sample so that it has mean zero and standard deviation one (_studentize_ the sample). That is, we want $z_i = (x_i-\bar{x})/s$ for $i=1,\ldots,n$, where $s$ is that standard deviation of the sample. Using your function `f` this is `z <- f(x, a=mean(x), b=sd(x))`. Display a summary and histogram of the studentized sample `z`. It should be centered exactly at zero. Use `sd(z)` to check that the studentized sample has standard deviation exactly 1.0.
 
+_Answer:_
+
 ```{r}
 z <- f(x, a=mean(x), b=sd(x))
 c(mean=mean(z), sd=sd(z)) |> round(10)
@@ -73,6 +85,8 @@ c(mean=mean(z), sd=sd(z)) |> round(10)
 
 Using your function `f` of Exercise 1.4, center and scale your Normal($\mu=2$, $\sigma=2$) sample by subtracting the sample median and dividing by the sample interquartile range (`IQR`). 
 
+_Answer:_
+
 ```{r}
 w <- f(x, a=median(x), b=IQR(x))
 data.frame(x=x, w=w) |> summary()
@@ -83,6 +97,8 @@ data.frame(x=x, w=w) |> summary()
 ### Q1.7
 
 Refer to Example 1.14 where we displayed an array of scatterplots using `ggplot` with `facet_wrap`. One of the variables in the `mpg` data is `drv`, a characer vector indicating whether the vehicle is front-wheel drive, real-wheel drive, or four-wheel drive. Add `color=drv` in `aes`: `aes(displ, hwy, color=drv)` and display the revised plot. Your scatterplots should now have automatically generated a legend for `drv` color.
+
+_Answer:_
 
 ```{r}
 library(ggplot2)

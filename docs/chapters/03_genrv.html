@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -293,36 +327,110 @@ window.Quarto = {
 <section id="q3.1" class="level3">
 <h3 class="anchored" data-anchor-id="q3.1">Q3.1</h3>
 <p>Write a function that will generate and return a random sample of size <span class="math inline">\(n\)</span> from the two-parameter exponential distribution Exp(<span class="math inline">\(\lambda\)</span>,<span class="math inline">\(\eta\)</span>) for arbitrary <span class="math inline">\(n\)</span>, <span class="math inline">\(\lambda\)</span>, and <span class="math inline">\(\eta\)</span>. (See Examples 2.3 and 2.6.) Generate a large sample from Exp(<span class="math inline">\(\lambda\)</span>,<span class="math inline">\(\eta\)</span>) and compare your sample quantiles with the theoretical quantiles.</p>
+<p><em>Answer:</em></p>
+<p>Use the inverse transform method. First recall the cdf <span class="math inline">\(F_X(x)\)</span> and find <span class="math inline">\(F_X^{-1}(u)\)</span>. <span class="math display">\[
+u = F_X(x) = 1 - e^{-\lambda(x-\eta)}
+\hspace{1em} \rightarrow \hspace{1em}
+F_X^{-1}(u) = -\log(1-u)/\lambda + \eta
+\]</span></p>
+<p>Next define a function to generate random variates of <span class="math inline">\(X\)</span> using <span class="math inline">\(F_X^{-1}(u)\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>rexp2 <span class="ot">&lt;-</span> <span class="cf">function</span>(n, lambda, eta) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   <span class="sc">-</span><span class="dv">1</span><span class="sc">*</span><span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">runif</span>(n))<span class="sc">/</span>lambda <span class="sc">+</span> eta</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Calculate the common empirical quantiles.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rexp2</span>(<span class="at">n=</span><span class="fl">1e4</span>, <span class="at">lambda=</span><span class="dv">3</span>, <span class="at">eta=</span><span class="dv">2</span>) <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   2.097   2.232   2.331   2.459   4.603 </code></pre>
+</div>
+</div>
+<p>Recall that for quantile <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(F(x_\alpha)=\alpha\)</span> with <span class="math inline">\(x_\alpha = -\log(1-\alpha)/\lambda + \eta\)</span>. Compare the empirical quantiles from our large sample to the theoretical quantiles.</p>
+<p><span class="math display">\[\begin{align*}
+   x_{0.25} &amp;= -\log(1-0.25)/3+2 = 2.096 \\
+   x_{0.50} &amp;= -\log(1-0.50)/3+2 = 2.231 \\
+   x_{0.75} &amp;= -\log(1-0.75)/3+2 = 2.462
+\end{align*}\]</span></p>
 </section>
 <section id="q3.2" class="level3">
 <h3 class="anchored" data-anchor-id="q3.2">Q3.2</h3>
 <p>The standard Lapace distribution has density <span class="math inline">\(f(x) = \frac{1}{2}e^{-\vert x \vert}\)</span> for <span class="math inline">\(x \in \mathbb{R}\)</span>. Use the inverse transform method to generate a random sample of size 1000 from this distribution. Use one of the methods shown in this chapter to compare the generated sample to the target distribution.</p>
+<p><em>Answer:</em></p>
+<p>First find the cdf and its inverse.</p>
+<p><span class="math display">\[
+\begin{equation}
+  F_X^{-1}(u)  =
+    \begin{cases}
+      \exp\{x\}/2 &amp; \text{if } x \le 0\\
+      1 - \exp\{-x\}/2 &amp; \text{if } x &gt; 0
+    \end{cases}       
+\end{equation}
+\]</span> <span class="math display">\[
+F_X{-1}(u) = -\text{sign}(u-0.5) \times \log(1 - 2 \times |u-0.5|)
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>rlaplace <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>   u <span class="ot">&lt;-</span> <span class="fu">runif</span>(n) <span class="sc">-</span> <span class="fl">0.5</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>   <span class="sc">-</span><span class="fu">sign</span>(u)<span class="sc">*</span><span class="fu">log</span>(<span class="dv">1-2</span><span class="sc">*</span><span class="fu">abs</span>(u))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="03_genrv_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="q3.3" class="level3">
 <h3 class="anchored" data-anchor-id="q3.3">Q3.3</h3>
 <p>The Pareto(<span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>) distribution has cdf</p>
 <p><span class="math display">\[ F(x) = 1 -  \left(\frac{b}{x}\right)^a, \hspace{1em} x \ge b &gt; 0, \; a &gt; 0 \]</span></p>
 <p>Derive the probability inverse transformation <span class="math inline">\(F^{-1}(U)\)</span> and use the inverse transform method to simulate a random sample from the Pareto(2,2) distribution. Graph the density histogram of the sample with the Pareto(2,2) density superimposed for comparison.</p>
+<p><em>Answer:</em></p>
+<p><span class="math display">\[
+F_X^{-1}(u) = b(1-u)^{-1/a}
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>rpareto <span class="ot">&lt;-</span> <span class="cf">function</span>(n, a, b) b<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">runif</span>(n))<span class="sc">^</span>(<span class="sc">-</span>(<span class="dv">1</span><span class="sc">/</span>a))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="03_genrv_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="q3.4" class="level3">
 <h3 class="anchored" data-anchor-id="q3.4">Q3.4</h3>
 <p>The Rayleigh density is</p>
 <p><span class="math display">\[ f(x) = \frac{x}{\sigma^2}e^{-x^2/(2\sigma^2)}, \hspace{1em} x \ge 0, \; \sigma &gt; 0 \]</span></p>
 <p>Develop an algorithm to generate random samples from a Rayleigh(<span class="math inline">\(\sigma\)</span>) distribution. Generate Rayleigh(<span class="math inline">\(\sigma\)</span>) samples for several choices of <span class="math inline">\(\sigma &gt; 0\)</span> and check that the mode of the generated samples is close to the theoretical mode <span class="math inline">\(\sigma\)</span> (check the histogram).</p>
+<p><em>Answer:</em></p>
 </section>
 <section id="q3.5" class="level3">
 <h3 class="anchored" data-anchor-id="q3.5">Q3.5</h3>
 <p>A discrete random variable <span class="math inline">\(X\)</span> has probability mass function</p>
 <p>[insert table]</p>
 <p>Use the inverse transform method to generate a random sample of size 1000 from the distribution of <span class="math inline">\(X\)</span>. Construct a relative frequency table and compare the empirical with the theoretical probabilities. Repeat using the R <code>sample</code> function.</p>
+<p><em>Answer:</em></p>
 </section>
 <section id="q3.6" class="level3">
 <h3 class="anchored" data-anchor-id="q3.6">Q3.6</h3>
 <p>Prove that the accepted variates generated by the acceptance-rejection sampling algorithm are a random sample from the target density <span class="math inline">\(f_X\)</span>.</p>
+<p><em>Answer:</em></p>
 </section>
 <section id="q3.7" class="level3">
 <h3 class="anchored" data-anchor-id="q3.7">Q3.7</h3>
 <p>Write a function to generate a random sample of size <span class="math inline">\(n\)</span> from the Beta(<span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>) distribution by the acceptance-rejection method. Generate a random sample of size 1000 from the Beta(3,2) distribution. Graph the histogram of the sample with the theoretical Beta(3,2) density superimposed.</p>
+<p><em>Answer:</em></p>
 </section>
 <section id="q3.8" class="level3">
 <h3 class="anchored" data-anchor-id="q3.8">Q3.8</h3>
@@ -351,6 +459,7 @@ window.Quarto = {
 <p>It can be shown that the mixture in Exercise 3.12 has a Pareto distibution with cdf</p>
 <p><span class="math display">\[ F(y) = 1 - \left( \frac{\beta}{\beta + y} \right)^r, \hspace{1em} y \ge 0\]</span></p>
 <p>(This is an alternative parameterization of the Paredo cdf given in Exercise 3.3.) Generate 1000 random observations from the mixture with <span class="math inline">\(r=4\)</span> and <span class="math inline">\(\beta = 2\)</span>. Compare the empirical and theoretical (Pareto) distributions by graphing the density histogram of the sample and superimposing the Pareto density curve.</p>
+<p><em>Answer:</em></p>
 </section>
 <section id="q3.14" class="level3">
 <h3 class="anchored" data-anchor-id="q3.14">Q3.14</h3>
@@ -364,22 +473,27 @@ window.Quarto = {
 \end{bmatrix}
 \]</span></p>
 <p>using the Choleski factorization method. Use the R <code>pairs</code> plot to graph an arrach of scatter plots for each pair of variables. For each pair of variables (visually) check that the location and correlation approximately agree with the theoretical parameters of the correponding bivariate normal distribution.</p>
+<p><em>Answer:</em></p>
 </section>
 <section id="q3.15" class="level3">
 <h3 class="anchored" data-anchor-id="q3.15">Q3.15</h3>
 <p>Write a function that will standardize a multivariate normal sample for arbitrary <span class="math inline">\(n\)</span> and <span class="math inline">\(d\)</span>. That is, transform the sample so that the sample mean vector is zero and sample covariance is the identity matrix. To check your results, generate multivariate normal samples and print the sample mean vector and covariance matrix before and after standardization.</p>
+<p><em>Answer:</em></p>
 </section>
 <section id="q3.16" class="level3">
 <h3 class="anchored" data-anchor-id="q3.16">Q3.16</h3>
 <p>Efron and Tibshirani discuss the <code>scor</code> (<code>bootstrap</code>) test score data on 88 students who took examizations in five subjects. Each row of the data frame is a set of scores <span class="math inline">\((x_{i1}, \ldots, x_{i5})\)</span> for the <span class="math inline">\(i^{th}\)</span> student. Standardize the scores by type of exam. That is, standardize the bivariate samples (<span class="math inline">\(X_1, X_2\)</span>) (closed book) and the trivariate samples (<span class="math inline">\(X_3, X_4, X_5\)</span>) (open book). Compute the covariance matrix of the transformed sample of test scores.</p>
+<p><em>Answer:</em></p>
 </section>
 <section id="q3.17" class="level3">
 <h3 class="anchored" data-anchor-id="q3.17">Q3.17</h3>
 <p>Compare the performance of the Beta generator of Exercise 3.7, Example 3.8, and the R generator <code>rbeta</code>. Fix the parameters <span class="math inline">\(a=2\)</span>, <span class="math inline">\(b=2\)</span> and time each generator of 1000 iterations with sample size 5000. (See Example 3.19.) Are the results different for different choices of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>?</p>
+<p><em>Answer:</em></p>
 </section>
 <section id="q3.18" class="level3">
 <h3 class="anchored" data-anchor-id="q3.18">Q3.18</h3>
 <p>Write a function to generate a random sample from a <span class="math inline">\(W_d(\Sigma,n)\)</span> (Wishart) distribution for <span class="math inline">\(n &gt; d+1 \ge 1\)</span>, based on Bartlett’s decomposition.</p>
+<p><em>Answer:</em></p>
 
 
 </section>
