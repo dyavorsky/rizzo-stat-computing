@@ -2,15 +2,69 @@
 
 ### Q15.1
 
+Suppose that we need to generate a sequence of odd integers from $1$ to $n$. 
+
+a. Show how to do this for $n=15$ using `seq`, `seq.int`, and the sequence operator `:`. What is the type of object returned in each case?
+
+b. Use `microbenchmark` in the `microbenchmark` package to compare the computing time of these three methods for a sequence of 1000 odd integers (length should be 1000). Display a violin plot of the benchmark results using `autoplot`.
+
+c. Which of these methods is fastest? Discuss why one method may be slower than the others.
+
+
+
 ### Q15.2
+
+Refer to Example 15.3. Repeat these comparisons using `microbenchmark` and display a violin plot of the results. Based on these timings, order these operations from fastest to slowest. 
+
+
 
 ### Q15.3
 
+Refer to the following summary table from the microbenchmark timing experiment in Example 15.2.
+
+```{r}
+library(microbenchmark)
+
+n <- 100
+mb2 <- microbenchmark(
+    numeric = numeric(n) + 1,
+    rep = rep(1, n),
+    seq = seq(from=1, to=1, length=n),
+    ones = matrix(1, nrow=n, ncol=1),
+    as.ones = as.matrix(rep(1, n))
+)
+
+print(mb2)
+```
+
+a. Compute the "relative" running times (relative to the fastest mean time) for each of the mean times.
+
+b. What is the percent improvement in computing time for initializing othe 'ones' $n \times 1$ matrix if we initialize the matrix (labeled 'ones') rather thn use the function `as.matrix` (labeled 'as.ones')?
+
+
+
 ### Q15.4
+
+Reer to Example 3.19. Compare all of the methods of generating multivariate normal samples from Example 3.19 using the `benchmark` function in the `rbenchmark` package. See Example 15.3 to get started. Order the methods from fastest to slowest and compare the relative timings to those from Example 3.19.
+
+
 
 ### Q15.5
 
+Refer to Example 1.6 on run length encoding. Using `rle` to enode a sequence of integers could result in a different object size. The original sequence can be recovered using `inverse.rle`. Generate a random sample of size 10000 of a $\textrm{Poisson}(\lambda = 2)$ random variable, and use `rle` to encode the sample. Show that `inverse.rle` recovers the original sample using `all.equal`. Compare the object size of the original sample and the RLE object. Now change the Poisson parameter varying $\lambda$ along $\{0.1, 0.5, 1, 2, 4, 8\}$ and repeat the comparison of object sizes for each $\lambda$ with $n=10000$. Does the object size of the original Poisson sample change? Does the size of the RLE object change? Summarize any pattern that you observe.
+
+
+
 ### Q15.6
+
+This exercise continues an analysis of baseball data from the application, Example 15.20, which was inspired by one of Jim Albert's data science class exercises, "Top 10 WhIP Values". WHIP stands for the mean number of walks and hits allowed per inning for a pitcher. In the `Pitching` data frame (`Lahman` package), `BB` is the number of walks, `H` is the number of hits, and `IPouts` is the number of outs. Use `str(Pitching)` to see more details. The WhIP statistic is defined by
+$$
+\textrm{WHIP} = \frac{\textrm{BB} + \textrm{H}}{\textrm{IPouts} / 3}.
+$$
+
+For example, in 2016, Clayton Kershaw allowed 97 hits and 11 walks, generated 447 outs, and his WHIP statistic was $(11+97)/(447/3) = 0.725$. Pitchers with the lowest WHIP statistics have the bests performance according to this measure. 
+
+Find and display the best 10 WHIP pitchers for 2015. Qualifying pitchers for this analysis are the ones where $\textrm{IPouts} \ge 486$.
 
 
 
