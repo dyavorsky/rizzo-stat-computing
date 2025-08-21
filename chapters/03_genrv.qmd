@@ -190,6 +190,8 @@ _Answer:_
 
 Write a function to generate random variates from a Lognormal($\mu$, $\sigma$) distribution using a transformation method, and generate a random sample of size 1000. Compare the historgram with the lognormal density curve given by the `dlnorm` function in R.
 
+_Answer:_
+
 
 
 
@@ -201,6 +203,8 @@ The rescaled Epanechnikov kernal is a symmetric density function
 $$ f_e{x} = \frac{3}{4}(1-x^2), \hspace{1em} \vert x \vert \le 1 $$
 
 Devroye and Gyorfi give the following algorithm for simulation from this distribution. Generate iid $U_1, U_2, U_3 \sim \text{Uniform}(-1,1)$. If $\vert U_3 \vert \ge \vert U_2 \vert$ and $\vert U_3 \vert \ge \vert U_1 \vert$, deliver $U_2$; otherwise deliver $U_3$. Write a function to generate random variates from $f_e$, and construct the histrogram density estimate of a large simulated random sample.
+
+_Answer:_
 
 
 
@@ -225,6 +229,8 @@ Generate a random sample of size 1000 from a normal location mixture. The compon
 ### Q3.12
 
 Simulate a continuous Exponential-Gamma mixture. Suppose that the rate parameter $\Lambda$ has Gamma($r$, $\beta$) distribution and $Y$ has Exp($\Lambda$) distribution. That is, $(Y \vert \Lambda = \lambda) \sim f_Y(y \vert \lambda) = \lambda e^{-\lambda y}$. Generate 1000 random observations from this mixture with $r=4$ and $\beta=2$
+
+_Answer:_
 
 
 
