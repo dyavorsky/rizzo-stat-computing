@@ -61,7 +61,7 @@ $$
 \end{equation}
 $$
 $$
-F_X{-1}(u) = -\text{sign}(u-0.5) \times \log(1 - 2 \times |u-0.5|)
+F_X^{-1}(u) = -\text{sign}(u-0.5) \times \log(1 - 2 \times |u-0.5|)
 $$
 
 ```{r}
@@ -120,8 +120,6 @@ rpareto <- function(n, a, b) b*(1-runif(n))^(-(1/a))
 #| fig-align: center
 #| fig-height: 4
 
-library(tidyverse)
-
 set.seed(1234)
 x <- rpareto(1e4, 2, 2)
 s <- seq(from=2, to=15, by=0.1)
@@ -148,22 +146,82 @@ Develop an algorithm to generate random samples from a Rayleigh($\sigma$) distri
 
 _Answer:_
 
+Use the inverse transform methos. First find $F(x) = \int f(x) dx = 1 - e^{-x^2/(2\sigma^2)}$ so that $F^{-1}(u)^2 = -2\sigma^2\log(1-u)$. 
 
+```{r}
+rrayleigh <- function(n, sigma) sqrt(-2*sigma^2*log(runif(n)))
+```
 
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-height: 4
+
+set.seed(1234)
+s <- seq(from=0, to=15, by=0.05)
+drayleigh <- function(x, sigma) x/sigma^2 * exp(-x^2/(2*sigma^2))
+
+par(mfrow=c(1,2))
+
+x1 <- rrayleigh(1e4, 2)
+y1 <- drayleigh(s, 2)
+
+ggplot() + 
+   geom_histogram(data=tibble(x1), aes(x1, y=after_stat(density)), bins=100) +
+   geom_line(data=tibble(s,y1), aes(x=s, y=y1), linewidth=1, col="firebrick") + 
+   ggtitle("Rayleigh(2) Distribution") + 
+   labs(x="", y="") + 
+   xlim(0,15) +
+   theme_minimal()
+
+x2 <- rrayleigh(1e4, 4)
+y2 <- drayleigh(s, 4)
+
+ggplot() + 
+   geom_histogram(data=tibble(x2), aes(x2, y=after_stat(density)), bins=100) +
+   geom_line(data=tibble(s,y2), aes(x=s, y=y2), linewidth=1, col="firebrick") + 
+   ggtitle("Rayleigh(4) Distribution") + 
+   labs(x="", y="") + 
+   xlim(0,15) +
+   theme_minimal()
+
+par(mfrow=c(1,1))
+```
 
 
 ### Q3.5
 
 A discrete random variable $X$ has probability mass function 
 
-[insert table]
+|   x  |   0  |   1  |   2  |   3  |   4  | 
+|------|------|------|------|------|------|
+| p(x) |  0.1 |  0.2 |  0.2 |  0.2 |  0.3 |
 
 Use the inverse transform method to generate a random sample of size 1000 from the distribution of $X$. Construct a relative frequency table and compare the empirical with the theoretical probabilities. Repeat using the R `sample` function.
 
 _Answer:_
 
+```{r}
+set.seed(1234)
+n <- 1e4
 
+# inverse transform method
+u <- runif(n)
+cp <- cumsum(c(0.1, 0.2, 0.2, 0.2, 0.3))
+x1 <- (u>cp[1]) + (u>cp[2]) + (u>cp[3]) + (u>cp[4]) + (u>cp[5])
 
+# sample method
+x2 <- sample(x=0:4, size=n, replace=T, prob=c(1,2,2,2,3)/10)
+
+# tabulate both methods
+merge(
+   tibble(x=x1) |> group_by(x) |> summarize(n1=n()) |> mutate(perc1=n1/sum(n1)),
+   tibble(x=x2) |> group_by(x) |> summarize(n2=n()) |> mutate(perc2=n2/sum(n2)),
+   by="x"
+)
+```
 
 
 ### Q3.6
